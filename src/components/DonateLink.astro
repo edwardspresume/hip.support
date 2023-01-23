@@ -1,0 +1,25 @@
+---
+import { t } from 'i18next';
+---
+
+<a
+    href='https://www.paypal.com/donate/?hosted_button_id=KPDQ99YANLVPN'
+    class='donate_link'
+>
+    {t('common:donate_text')}
+</a>
+
+<style lang='scss'>
+    @use './src/scss/abstracts/' as *;
+
+    .donate_link {
+        color: #fff;
+        font-size: 2.2rem;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+        background: rgb(0, 109, 234);
+        box-shadow: 2px 2px 2px 0px rgb(0 0 0 / 30%);
+
+        @include filter_brightness(0.2s, 85%);
+    }
+</style>

@@ -1,0 +1,67 @@
+---
+import { changeLanguage, t } from "i18next";
+import Form from "../components/Form.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+changeLanguage("en");
+
+const current_page = "request_page";
+const current_page_meta_title = "Request Assistance | HIP - HAITI IMMIGRATION PROJECT";
+const current_page_meta_description = "Request assistance for your USCIS applications from HAITI IMMIGRATION PROJECT";
+---
+
+<BaseLayout
+    current_page={current_page}
+    current_page_meta_title={current_page_meta_title}
+    current_page_meta_description={current_page_meta_description}
+>
+    <main>
+        <section>
+            <div class='container'>
+                <h1>
+                    {t('form:request_heading')}
+                </h1>
+
+                <Form page={current_page} form_name='Assistance request'>
+                    <label>
+                        <span class='label_text'>
+                            {t('form:labels.application')}
+
+                            *</span
+                        >
+
+                        <select name='application' required>
+                            <option value='' selected disabled>
+                                {t('form:selector_options.default_option')}
+                            </option>
+
+                            <option value='Travel Document'>
+                                {t('form:selector_options.travel_document')}
+                            </option>
+
+                            <option value='Employment Authorization'>
+                                {
+                                    t(
+                                        'form:selector_options.employment_authorization'
+                                    )
+                                }
+                            </option>
+
+                            <option value='TPS'>TPS</option>
+
+                            <option value='Citizenship Application'>
+                                {
+                                    t(
+                                        'form:selector_options.citizenship_application'
+                                    )
+                                }
+                            </option>
+
+                            <option value='N 400'>N 400</option>
+                        </select>
+                    </label>
+                </Form>
+            </div>
+        </section>
+    </main>
+</BaseLayout>

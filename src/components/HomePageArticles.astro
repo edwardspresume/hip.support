@@ -1,0 +1,158 @@
+---
+import { t } from 'i18next';
+
+import { Picture } from '@astrojs/image/components';
+
+import homeland_security from '/src/assets/images/articles/homeland_security.png';
+
+import daniel_foote from '/src/assets/images/articles/daniel_foote.jpeg';
+
+import del_rio_crisis from '/src/assets/images/articles/del_rio_crisis.jpeg';
+
+import marie_pereira_pix_news from '/src/assets/images/articles/marie_pereira_pix_news.png';
+
+import donald_trump from '/src/assets/images/articles/donald_trump.jpeg';
+
+interface Articles {
+    img_src: ImageMetadata;
+    img_alt: string;
+    title: string;
+    text: string;
+    link: string;
+}
+
+const articles: Articles[] = [
+    {
+        img_src: homeland_security,
+
+        img_alt: 'Homeland Security',
+
+        title: 'TPS extended till August 3, 2024',
+
+        text: 'Secretary of Homeland Security Alejandro N. Mayorkas today announced the extension of Temporary Protected Status (TPS) for Haiti for an additional 18 months',
+
+        link: 'https://www.uscis.gov/newsroom/news-releases/secretary-mayorkas-extends-and-redesignates-temporary-protected-status-for-haiti-for-18-months',
+    },
+
+    {
+        img_src: daniel_foote,
+
+        img_alt: 'Daniel Foote',
+
+        title: 'Daniel Foote Resignation',
+
+        text: 'Daniel Foote, the U.S. special envoy for Haiti, has handed his resignation to Secretary of State Antony Blinken, saying he "will not be associated with the United States',
+
+        link: 'https://www.npr.org/2021/09/23/1040055089/us-special-envoy-haiti-quits-deportations-refugees',
+    },
+
+    {
+        img_src: del_rio_crisis,
+
+        img_alt: 'Del Rio Crisis',
+
+        title: 'Del Rio Crisis',
+
+        text: 'On Friday afternoon, Jose Rodriguez stood near a fence that was steps away from the Rio Grande and tried to comprehend what was happening in his small border city',
+
+        link: 'https://www.nytimes.com/2021/09/20/us/delrio-texas-migrants-crisis.html',
+    },
+
+    {
+        img_src: marie_pereira_pix_news,
+
+        img_alt: 'Marie Pereira Pix News',
+
+        title: 'Immigration lawyer talks Haitian migrant crisis, offers help',
+
+        text: 'Immigration lawyer and Haitian-American Marie Pereira discussed her thoughts on the images circulating and what needs to be done',
+
+        link: 'https://pix11.com/news/national-news/immigration-lawyer-talks-haitian-migrant-crisis-offers-help/',
+    },
+
+    {
+        img_src: donald_trump,
+
+        img_alt: 'Donald Trump',
+
+        title: 'Trump referred to Haiti and African nations as "shithole" countries',
+
+        text: 'President Donald Trump referred to Haiti and African nations as "shithole countries" during a meeting with a bipartisan group of senators at the White House',
+
+        link: 'https://www.nbcnews.com/politics/white-house/trump-referred-haiti-african-countries-shithole-nations-n836946',
+    },
+];
+---
+
+<div class='articles_div'>
+    {
+        articles.map((article) => (
+            <article>
+                <Picture
+                    src={article.img_src}
+                    aspectRatio='2:1'
+                    widths={[900]}
+                    sizes='(max-width: 800px) 100vw, 66rem'
+                    alt={article.img_alt}
+                />
+
+                <h3>{t(`homepage_articles:titles.${article.title}`)}</h3>
+
+                <p>{t(`homepage_articles:paragraphs.${article.text}`)}</p>
+
+                <a href={article.link}>
+                    {t(`homepage_articles:article_link_text`)}
+                </a>
+            </article>
+        ))
+    }
+</div>
+
+<style lang='scss'>
+    .articles_div {
+        gap: 4rem;
+        display: grid;
+        margin-top: 4rem;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 33rem));
+    }
+
+    img {
+        border-radius: 7px;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    h3 {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-top: 1.6rem;
+    }
+
+    .articles_div p {
+        overflow: hidden;
+        font-size: 1.3rem;
+        margin-top: 0.9rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    a {
+        padding: 1rem;
+        border: 1px solid;
+        border-radius: 7px;
+        display: inline-block;
+        text-transform: uppercase;
+        transition: background 0.2s ease-in-out;
+
+        &:hover {
+            background: #e3e3e3;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .articles_div {
+            grid-template-columns: repeat(auto-fit, minmax(20rem, 43rem));
+        }
+    }
+</style>

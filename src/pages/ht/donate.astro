@@ -1,0 +1,64 @@
+---
+import { changeLanguage, setDefaultNamespace, t } from "i18next";
+import DonateLink from "../../components/DonateLink.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+changeLanguage("ht");
+
+setDefaultNamespace("donate");
+const current_page = "donate_page";
+const current_page_meta_title = "Support HAITI IMMIGRATION PROJECT by donating to Assist Immigrants in Need";
+const current_page_meta_description = "Donate to the Haiti Immigration Project and help qualified undocumented immigrants apply for TPS, work permits, and travel documents. Your support will also assist qualified documented immigrants in their pursuit of citizenship and create an emergency fund for those facing crisis.";
+---
+
+<BaseLayout
+    current_page={current_page}
+    current_page_meta_title={current_page_meta_title}
+    current_page_meta_description={current_page_meta_description}
+>
+    <main>
+        <section>
+            <div class='container'>
+                <h1>
+                    {t('section_1.h1')}
+                </h1>
+
+                <p>
+                    {t('section_1.paragraph_1')}
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_2.h2')}
+                </h2>
+
+                <p>
+                    {t('section_2.paragraph_1')}
+                </p>
+
+                <p>
+                    <DonateLink />
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <p>
+                    {t('section_3.paragraph_1')}
+                </p>
+
+                <p>
+                    {t('section_3.paragraph_2')}
+                </p>
+
+                <p>
+                    {t('section_3.paragraph_3')}
+                </p>
+            </div>
+        </section>
+    </main>
+</BaseLayout>

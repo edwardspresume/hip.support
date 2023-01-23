@@ -1,0 +1,32 @@
+---
+import { changeLanguage, t } from "i18next";
+import ScrollTopBtn from "../../components/ScrollTopBtn.astro";
+import VideosDiv from "../../components/VideosDiv.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+changeLanguage("ht");
+
+const current_page = "media_page";
+const current_page_meta_title = "Media | HIP - HAITI IMMIGRATION PROJECT";
+const current_page_meta_description = "Stay informed and connected with the Haiti Immigration Project's media page! Learn about our latest updates and events through our media resources.";
+---
+
+<BaseLayout
+    current_page={current_page}
+    current_page_meta_title={current_page_meta_title}
+    current_page_meta_description={current_page_meta_description}
+>
+    <main id='main'>
+        <section>
+            <div class='container'>
+                <h1 id='heading'>
+                    {t('media:h1')}
+                </h1>
+
+                <VideosDiv />
+            </div>
+        </section>
+    </main>
+
+    <ScrollTopBtn />
+</BaseLayout>

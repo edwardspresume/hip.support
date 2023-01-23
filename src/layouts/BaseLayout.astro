@@ -1,0 +1,55 @@
+---
+import i18next from 'i18next';
+
+// Head components
+import FavIcon from '../components/HeadTags/FavIcon.astro';
+import GeneralMetaTags from '../components/HeadTags/GeneralMetaTags.astro';
+import ThirdPartyLinks from '../components/HeadTags/ThirdPartyLinks.astro';
+
+// Site components
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteMainNav from '../components/SiteMainNav/SiteMainNav.astro';
+
+import '../scss/global.scss';
+
+export interface Props {
+    current_page: string;
+    current_page_meta_title: string;
+    current_page_meta_description: string;
+}
+
+const { current_page, current_page_meta_title, current_page_meta_description } =
+    Astro.props;
+
+const canonical_url = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang={i18next.language} class='html_tag'>
+    <head>
+        <title>{current_page_meta_title}</title>
+        <link rel='canonical' href={canonical_url} />
+
+        <GeneralMetaTags
+            canonical_url={canonical_url}
+            current_page_meta_title={current_page_meta_title}
+            current_page_meta_description={current_page_meta_description}
+        />
+
+        <FavIcon />
+
+        <ThirdPartyLinks />
+    </head>
+
+    <body class={current_page}>
+        <SiteMainNav current_page={current_page} />
+
+        <slot />
+
+        <SiteFooter />
+
+        <script>
+            import '/src/scripts/main_site_nav.ts';
+        </script>
+    </body>
+</html>

@@ -1,0 +1,145 @@
+---
+// I18next
+import { localizePath } from 'astro-i18next';
+import { t } from 'i18next';
+
+// Nav components
+import RegularTab from './RegularTab.astro';
+import SubMenuTab from './SubMenuTab.astro';
+
+interface NavTabs {
+    display_name: string;
+    data_name: string;
+    url?: string;
+    is_submenu: boolean;
+    is_section_tab: string;
+}
+
+const main_nav_tabs: NavTabs[] = [
+    {
+        display_name: 'home',
+        data_name: 'home',
+        url: '/',
+        is_submenu: false,
+        is_section_tab: 'false',
+    },
+
+    {
+        display_name: 'media',
+        data_name: 'media',
+        url: 'media',
+        is_submenu: false,
+        is_section_tab: 'false',
+    },
+
+    {
+        display_name: 'uscis',
+        data_name: 'uscis',
+        is_submenu: true,
+        is_section_tab: 'false',
+    },
+
+    {
+        display_name: 'info',
+        data_name: 'info',
+        is_submenu: true,
+        is_section_tab: 'false',
+    },
+
+    {
+        display_name: 'request assistance',
+        data_name: 'request',
+        url: 'request',
+        is_submenu: false,
+        is_section_tab: 'false',
+    },
+
+    {
+        display_name: 'articles',
+        data_name: 'articles',
+        url: '#article_section',
+        is_submenu: false,
+        is_section_tab: 'true',
+    },
+
+    {
+        display_name: 'team',
+        data_name: 'team',
+        url: 'team',
+        is_submenu: false,
+        is_section_tab: 'false',
+    },
+
+    {
+        display_name: 'volunteer',
+        data_name: 'volunteer',
+        url: 'volunteer',
+        is_submenu: false,
+        is_section_tab: 'false',
+    },
+
+    {
+        display_name: 'join',
+        data_name: 'join',
+        url: 'join',
+        is_submenu: false,
+        is_section_tab: 'false',
+    },
+
+    {
+        display_name: 'donate',
+        data_name: 'donate',
+        url: 'donate',
+        is_submenu: false,
+        is_section_tab: 'false',
+    },
+];
+
+// Props
+export interface Props {
+    current_page: string;
+}
+
+const { current_page } = Astro.props;
+---
+
+<menu id='main_nav_menu' class='main_nav_menu' role='list'>
+    {
+        main_nav_tabs.map((tab) =>
+            tab.is_submenu === false ? (
+                <RegularTab
+                    tab_link={localizePath(tab.url)}
+                    data_section_tab={tab.is_section_tab}
+                    active_page={current_page.includes(tab.data_name)}>
+                    {t(`navigation:main_tabs.${tab.display_name}`)}
+                </RegularTab>
+            ) : (
+                <SubMenuTab
+                    display_name={tab.display_name}
+                    data_name={tab.data_name}
+                />
+            )
+        )
+    }
+</menu>
+
+<style lang='scss' is:global>
+    @use '/src/scss/abstracts/' as *;
+
+    @media (max-width: $mb) {
+        .main_nav_menu {
+            text-align: center;
+            margin-bottom: 3rem;
+
+            li {
+                padding: 1.3rem 0;
+            }
+        }
+    }
+
+    @media (min-width: $dt) {
+        .main_nav_menu > li {
+            padding: 0.7rem 1rem;
+        }
+    }
+</style>

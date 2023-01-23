@@ -1,0 +1,62 @@
+---
+import { localizePath } from 'astro-i18next';
+import { Icon } from 'astro-icon';
+
+// URL Path
+const { pathname } = Astro.url;
+const english_path = pathname.replace(/\/ht\//, '/');
+---
+
+<a href={localizePath(pathname, 'ht')} class='language_selector_link creole'>
+    <Icon
+        name='twemoji:flag-for-flag-haiti'
+        width='15'
+        height='15'
+        aria-label='Haiti flag'
+    />
+
+    <span>Kreyòl</span>
+</a>
+
+<a href={english_path} class='language_selector_link english'>
+    <Icon
+        name='emojione-v1:flag-for-united-states'
+        width='15'
+        height='15'
+        aria-label='USA Flag'
+    />
+
+    <span>English</span>
+</a>
+
+<style lang='scss' is:global>
+    @use '/src/scss/abstracts/' as *;
+
+    .html_tag[lang='en'] .language_selector_link.english {
+        display: none;
+    }
+
+    .html_tag[lang='ht'] .language_selector_link.creole {
+        display: none;
+    }
+
+    .language_selector_link {
+        display: flex;
+        padding: 0.6rem;
+        font-size: 1.5rem;
+        column-gap: 0.3rem;
+        width: fit-content;
+        width: -moz-fit-content;
+        border-radius: 7px;
+        align-items: center;
+        border: 1px solid #777;
+        grid-area: language_selector_link;
+    }
+
+    @media (min-width: $dt) {
+        .language_selector_link {
+            margin-left: 1.4rem;
+            margin-bottom: 0.6rem;
+        }
+    }
+</style>

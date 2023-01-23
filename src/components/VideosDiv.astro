@@ -1,0 +1,183 @@
+---
+import { t } from 'i18next';
+
+import video_01 from '../assets/videos/video_01.mp4';
+import video_02 from '../assets/videos/video_02.mp4';
+import video_03 from '../assets/videos/video_03.mp4';
+import video_04 from '../assets/videos/video_04.mp4';
+import video_05 from '../assets/videos/video_05.mp4';
+import video_06 from '../assets/videos/video_06.mp4';
+import video_07 from '../assets/videos/video_07.mp4';
+import video_08 from '../assets/videos/video_08.mp4';
+import video_09 from '../assets/videos/video_09.mp4';
+import video_10 from '../assets/videos/video_10.mp4';
+import video_11 from '../assets/videos/video_11.mp4';
+import video_12 from '../assets/videos/video_12.mp4';
+import video_13 from '../assets/videos/video_13.mp4';
+
+import thumbnail_01 from '../assets/images/video_thumbnail/thumbnail_01.png';
+import thumbnail_02 from '../assets/images/video_thumbnail/thumbnail_02.png';
+import thumbnail_03 from '../assets/images/video_thumbnail/thumbnail_03.png';
+import thumbnail_04 from '../assets/images/video_thumbnail/thumbnail_04.png';
+import thumbnail_05 from '../assets/images/video_thumbnail/thumbnail_05.png';
+import thumbnail_06 from '../assets/images/video_thumbnail/thumbnail_06.png';
+import thumbnail_07 from '../assets/images/video_thumbnail/thumbnail_07.png';
+import thumbnail_08 from '../assets/images/video_thumbnail/thumbnail_08.png';
+import thumbnail_09 from '../assets/images/video_thumbnail/thumbnail_09.png';
+import thumbnail_10 from '../assets/images/video_thumbnail/thumbnail_10.png';
+import thumbnail_11 from '../assets/images/video_thumbnail/thumbnail_11.png';
+import thumbnail_12 from '../assets/images/video_thumbnail/thumbnail_12.png';
+import thumbnail_13 from '../assets/images/video_thumbnail/thumbnail_13.png';
+
+interface Videos {
+    src: string;
+    poster: string;
+    title: string;
+}
+
+const videos: Videos[] = [
+    {
+        src: video_01,
+
+        poster: thumbnail_01.src,
+
+        title: 'Immigration lawyer talks Haitian migrant crisis, offers help',
+    },
+
+    {
+        src: video_12,
+
+        poster: thumbnail_12.src,
+
+        title: 'HAITI IMMIGRATION PROJECT',
+    },
+
+    {
+        src: video_13,
+
+        poster: thumbnail_13.src,
+
+        title: 'Free Immigration Assistance',
+    },
+
+    {
+        src: video_02,
+
+        poster: thumbnail_02.src,
+
+        title: 'Discussing Title 42',
+    },
+
+    {
+        src: video_03,
+
+        poster: thumbnail_03.src,
+
+        title: 'Gangs rule in violent takeover',
+    },
+
+    {
+        src: video_04,
+
+        poster: thumbnail_04.src,
+
+        title: 'Haitian Gang Demands $17M ransom for Kidnappings',
+    },
+
+    {
+        src: video_05,
+
+        poster: thumbnail_05.src,
+
+        title: 'Ignite your power',
+    },
+
+    {
+        src: video_06,
+
+        poster: thumbnail_06.src,
+
+        title: 'News 12 Interview Advocating For Haitian Migrant Family in Crisis',
+    },
+
+    {
+        src: video_07,
+
+        poster: thumbnail_07.src,
+
+        title: 'On Mission In Brooklyn Discovering Community resources to assist the needy',
+    },
+
+    {
+        src: video_08,
+
+        poster: thumbnail_08.src,
+
+        title: 'FREE ASSISTANCE WITH TPS, AND EMPLOYMENT AUTHORIZATION APPLICATIONS',
+    },
+
+    {
+        src: video_09,
+
+        poster: thumbnail_09.src,
+
+        title: 'I provide a free service because it makes ME FEEL GOOD',
+    },
+
+    {
+        src: video_10,
+
+        poster: thumbnail_10.src,
+
+        title: 'Dehumanizing Haitian migrants is inhumane',
+    },
+
+    {
+        src: video_11,
+
+        poster: thumbnail_11.src,
+
+        title: 'Special envoy FOR HAITI DANIEL FOOTE RESIGNED BECAUSE SILENCE IN THE FACE OF INJUSTICE IS ACCEPTANCE TO INJUSTICE',
+    },
+];
+---
+
+<div class='videos_div'>
+    {
+        videos.map((video) => (
+            <article class='video_box'>
+                <h2>{t(`media:titles.${video.title}`)}</h2>
+
+                <video controls poster={video.poster}>
+                    <source src={video.src} type='video/mp4' />
+                </video>
+            </article>
+        ))
+    }
+</div>
+
+<style lang='scss'>
+    @use './src/scss/abstracts/' as *;
+
+    .videos_div {
+        display: grid;
+        gap: 8rem 4rem;
+        align-items: end;
+        grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    }
+
+    .videos_div h2 {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+    }
+
+    video {
+        width: 100%;
+        height: 30rem;
+        background: #fff;
+        border-radius: 7px;
+        border: 1px solid rgba(198, 198, 198, 0.9);
+    }
+</style>

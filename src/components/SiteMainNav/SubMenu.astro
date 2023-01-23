@@ -1,0 +1,114 @@
+---
+import { t } from 'i18next';
+import ExternalLink from './ExternalLink.astro';
+
+export interface Props {
+    submenu_data_name: string;
+}
+
+const { submenu_data_name } = Astro.props;
+
+const uscis_links = [
+    {
+        name: 'Travel Document',
+        url: 'https://www.uscis.gov/i-131',
+    },
+    {
+        name: 'Employment Authorization',
+        url: 'https://www.uscis.gov/i-765',
+    },
+    {
+        name: 'TPS',
+        url: 'https://www.uscis.gov/humanitarian/temporary-protected-status',
+    },
+    {
+        name: 'Citizenship Application',
+        url: 'https://my.uscis.gov/citizenship/what_to_expect',
+    },
+    {
+        name: 'N 400',
+        url: 'https://www.uscis.gov/n-400',
+    },
+    {
+        name: 'Government Fees',
+        url: 'https://rapidvisa.com/government-fees/',
+    },
+];
+
+const info_links = [
+    {
+        name: 'What Are the Four Types Of Immigration?',
+        url: 'https://nelsonimmigrationlaw.com/what-are-the-four-types-of-immigration/',
+    },
+
+    {
+        name: 'Asylum Seeker',
+        url: 'https://www.nyc.gov/site/immigrants/help/asylum-seekers/asylum-seekers-help.page',
+    },
+];
+---
+
+<menu role='list' id={`${submenu_data_name}_submenu`} class='submenu'>
+    {
+        submenu_data_name === 'uscis' &&
+            uscis_links.map((link) => (
+                <ExternalLink link_url={link.url}>
+                    {t(`navigation:uscis_links.${link.name}`)}
+                </ExternalLink>
+            ))
+    }
+
+    {
+        submenu_data_name === 'info' &&
+            info_links.map((link) => (
+                <ExternalLink link_url={link.url}>
+                    {t(`navigation:info_links.${link.name}`)}
+                </ExternalLink>
+            ))
+    }
+</menu>
+
+<style lang='scss' is:global>
+    @use '/src/scss/abstracts/' as *;
+
+    @media (max-width: $mb) {
+        .submenu {
+            display: none;
+
+            &.submenu_active {
+                display: block;
+            }
+        }
+    }
+
+    @media (min-width: $dt) {
+        .has_submenu {
+            position: relative;
+        }
+
+        .submenu {
+            left: 50%;
+            top: 3.55rem;
+            width: 27rem;
+            visibility: hidden;
+            position: absolute;
+            text-align: center;
+            pointer-events: none;
+            background: $primary_color;
+            transform: translateX(-50%);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            // border-top: 1px solid #abb0b7;
+
+            a {
+                display: block;
+                padding: 1rem 0.3rem;
+            }
+        }
+
+        .has_submenu:hover .submenu {
+            visibility: visible;
+            pointer-events: all;
+        }
+    }
+</style>

@@ -1,0 +1,104 @@
+---
+// I18next
+import { localizePath } from 'astro-i18next';
+import { t } from 'i18next';
+
+// Nav components
+import LanguageSelectorLinks from './LanguageSelectorLinks.astro';
+import Logo from './Logo.astro';
+import MainNavMenuDiv from './MainNavMenuDiv.astro';
+import MainNavToggleButton from './MainNavToggleButton.astro';
+
+// Props
+export interface Props {
+    current_page: string;
+}
+
+const { current_page } = Astro.props;
+---
+
+<nav id='site_main_nav' class='site_main_nav' aria-label='Main Navigation'>
+    <div class='container'>
+        <LanguageSelectorLinks />
+
+        <Logo />
+
+        <MainNavToggleButton
+            icon_name='zondicons:menu'
+            selector_name='open_main_nav_btn'
+            aria_label='Open main navigation menu'
+            icon_size='25'
+        />
+
+        <a class='i_134a_link' href={localizePath('/i-134a-sponsorship')}>
+            {t('navigation:134a')}
+        </a>
+
+        <MainNavMenuDiv current_page={current_page} />
+    </div>
+</nav>
+
+<style lang='scss' is:global>
+    @use '/src/scss/abstracts/' as *;
+
+    .site_main_nav {
+        top: 0;
+        width: 100%;
+        z-index: 20;
+        position: fixed;
+        background: $primary_color;
+    }
+
+    .site_main_nav .container {
+        display: grid;
+    }
+
+    .site_main_nav a:not(.logo),
+    .toggle_submenu_btn {
+        color: #fff;
+        transition: color 0.13s ease;
+
+        &:hover {
+            color: $secondary_color;
+        }
+    }
+
+    .site_main_nav .i_134a_link {
+        text-align: center;
+        grid-area: i_134a_link;
+    }
+
+    @media (max-width: $mb) {
+        body.main_nav_menu_active {
+            overflow: hidden;
+        }
+
+        .site_main_nav .container {
+            align-items: center;
+            padding: 1rem 0.4rem;
+            grid-template-areas:
+                'language_selector_link logo open_main_nav_btn'
+                'i_134a_link i_134a_link i_134a_link';
+        }
+
+        .site_main_nav .i_134a_link {
+            font-size: 1.3rem;
+            margin-top: 0.8rem;
+        }
+    }
+
+    @media (min-width: $dt) {
+        .site_main_nav .container {
+            justify-content: center;
+            grid-template-areas:
+                'logo logo'
+                'i_134a_link i_134a_link'
+                'main_nav_menu_div language_selector_link';
+        }
+
+        .site_main_nav .i_134a_link {
+            margin: 1.3rem 0;
+            font-size: 1.4rem;
+        }
+    }
+</style>

@@ -1,0 +1,220 @@
+---
+import { changeLanguage, setDefaultNamespace, t } from 'i18next';
+// site components
+import DonateLink from '../components/DonateLink.astro';
+import HomePageArticles from '../components/HomePageArticles.astro';
+import ScrollTopBtn from '../components/ScrollTopBtn.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+changeLanguage('en');
+
+setDefaultNamespace('home');
+const current_page = 'homepage';
+const current_page_meta_title =
+    'Empowering Haitian Immigrants: The Haiti Immigration Project';
+const current_page_meta_description =
+    'Support the Haiti Immigration Project and make a positive impact on immigrant families in your community. Our non-profit organization is dedicated to serving and empowering immigrant families through networking opportunities and supportive services.';
+---
+
+<BaseLayout
+    current_page={current_page}
+    current_page_meta_title={current_page_meta_title}
+    current_page_meta_description={current_page_meta_description}
+>
+    <header
+        id='homepage_header'
+        class='homepage_header'
+        aria-label='Homepage header'
+    >
+        <div class='container'>
+            <h1>
+                {t('header.h1')}
+            </h1>
+            <h2>
+                {t('header.h2')}
+            </h2>
+        </div>
+    </header>
+
+    <main>
+        <section id='mission_section'>
+            <div class='container'>
+                <h2>{t('section_1.h2')}</h2>
+
+                <p>
+                    {t('section_1.paragraph_1')}
+                </p>
+
+                <p>
+                    {t('section_1.paragraph_2')}
+                </p>
+
+                <p>
+                    {t('section_1.paragraph_3')}
+                </p>
+            </div>
+        </section>
+
+        <section id='vision_section'>
+            <div class='container'>
+                <h2>{t('section_2.h2')}</h2>
+
+                <p>
+                    {t('section_2.paragraph_1')}
+                </p>
+
+                <p>
+                    {t('section_2.paragraph_2')}
+                </p>
+
+                <p>
+                    {t('section_2.paragraph_3')}
+                </p>
+
+                <p>
+                    {t('section_2.paragraph_4')}
+                </p>
+
+                <p>
+                    {t('section_2.paragraph_5')}
+                </p>
+
+                <p>
+                    {t('section_2.paragraph_6')}
+                </p>
+
+                <ul>
+                    <li>
+                        {t('section_2.ul_one_li_1')}
+                    </li>
+
+                    <li>
+                        {t('section_2.ul_one_li_2')}
+                    </li>
+
+                    <li>
+                        {t('section_2.ul_one_li_3')}
+                    </li>
+                </ul>
+
+                <p>
+                    {t('section_2.paragraph_7')}
+                </p>
+            </div>
+        </section>
+
+        <section id='history_section'>
+            <div class='container'>
+                <h2>
+                    {t('section_3.h2')}
+                </h2>
+
+                <p>
+                    {t('section_3.paragraph_1')}
+                </p>
+
+                <p>
+                    {t('section_3.paragraph_2')}
+                </p>
+
+                <p>
+                    {t('section_3.paragraph_3')}
+                </p>
+
+                <p>
+                    {t('section_3.paragraph_4')}
+                </p>
+
+                <ul>
+                    <li>
+                        {t('section_3.ul_one_li_1')}
+                    </li>
+
+                    <li>
+                        {t('section_3.ul_one_li_2')}
+                    </li>
+
+                    <li>
+                        {t('section_3.ul_one_li_3')}
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id='donate_section' class='donate_section'>
+            <div class='container'>
+                <h2>
+                    {t('section_4.h2')}
+                </h2>
+
+                <DonateLink />
+            </div>
+        </section>
+
+        <section id='article_section' class='article_section'>
+            <div class='container'>
+                <h2>
+                    {t('section_5.h2')}
+                </h2>
+
+                <HomePageArticles />
+            </div>
+        </section>
+    </main>
+
+    <ScrollTopBtn target='homepage_header' />
+</BaseLayout>
+
+<style lang='scss'>
+    @use '/src/scss/abstracts/' as *;
+
+    .homepage_header {
+        $margin: 9rem;
+
+        color: #fff;
+        display: grid;
+        text-align: center;
+        place-items: center;
+        margin-top: $margin;
+        height: calc(100vh - $margin);
+        height: calc(100dvh - $margin);
+        background-image: url('/src/assets/images/header.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-blend-mode: darken;
+        background-color: rgb(0 0 0 / 45%);
+
+        h2 {
+            margin-top: 2rem;
+            font-weight: normal;
+        }
+    }
+
+    .article_section h2 {
+        text-align: center;
+    }
+
+    .donate_section {
+        text-align: center;
+
+        h2 {
+            margin-bottom: 4rem;
+        }
+    }
+
+    @media (max-width: $mb) {
+        .homepage_header {
+            background-attachment: scroll;
+        }
+    }
+
+    @media (min-width: $dt) {
+        .homepage_header {
+            background-attachment: fixed;
+        }
+        .homepage_header h1 {
+            font-size: 5rem;
+        }
+    }
+</style>

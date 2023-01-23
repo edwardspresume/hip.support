@@ -1,0 +1,223 @@
+---
+import { Trans } from "astro-i18next/components";
+import { changeLanguage, setDefaultNamespace, t } from "i18next";
+import ScrollTopBtn from "../components/ScrollTopBtn.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+changeLanguage("en");
+
+setDefaultNamespace("i-134a-sponsorship");
+const current_page = "i-134A-sponsorship";
+const current_page_meta_title = "I-134A Sponsorship | HIP - HAITI IMMIGRATION PROJECT";
+const current_page_meta_description = "I-134A, Online Request to be a Supporter and Declaration of Financial Support";
+---
+
+<BaseLayout
+    current_page={current_page}
+    current_page_meta_title={current_page_meta_title}
+    current_page_meta_description={current_page_meta_description}
+>
+    <main id='main'>
+        <section>
+            <div class='container'>
+                <h1>
+                    {t('section_1.h1')}
+                </h1>
+
+                <h2>
+                    {t('section_1.h2')}
+                </h2>
+
+                <p>
+                    <b> {t('section_1.paragraph_1')}</b>
+                </p>
+
+                <p>
+                    <Trans i18nKey='section_1.paragraph_2'>
+                        <b
+                            >ONLY THE SPONSOR CAN SUBMIT THE APPLICATION TO
+                            SPONSOR THE PERSON IN HAITI</b
+                        > (called the beneficiaries). <b
+                            >RIGHT NOW, THERE IS NO OPTION FOR PAPER SUBMISSIONS
+                            OR LAWYER SUBMISSIONS</b
+                        > (hopefully that will change)
+                    </Trans>
+                </p>
+
+                <p>
+                    {t('section_1.paragraph_3')}
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_2.h2')}
+                </h2>
+
+                <p>
+                    <b>{t('section_2.paragraph_1')}</b>
+                </p>
+
+                <p>
+                    <Trans i18nKey='section_2.paragraph_2'>
+                        <b>BUT BENEFICIARIES MUST</b> have email internet access,
+                        <b>COVER COST OF PASSPORT</b>, vaccination for covid, <b
+                            >AIRLINE TICKETS</b
+                        > etc.
+                    </Trans>
+                </p>
+
+                <p>
+                    <Trans i18nKey='section_2.paragraph_3'>
+                        <b>THIS PROGRAM</b> allows 30 Thousand Applicants per month
+                        from 4 countries (not just Haiti).
+                    </Trans>
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_3.h2')}
+                </h2>
+
+                <p>
+                    <Trans i18nKey='section_3.paragraph_1'>
+                        <b>ANYONE</b> with legal status in <b
+                            >THE UNITED STATES</b
+                        > can sponsor and send for a <b>FRIEND</b> or family.
+                    </Trans>
+                </p>
+
+                <p>
+                    <Trans i18nKey='section_3.paragraph_2'>
+                        Legal status means a sponsor may be a citizen, green
+                        card holder, and <b>YES EVEN A TPS</b> holder <b>CAN</b>
+                        sponsor and <b>SEND FOR A PERSON</b>.
+                    </Trans>
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_4.h2')}
+                </h2>
+
+                <p>
+                    <Trans i18nKey='section_4.paragraph_1'>
+                        <b>SPONSOR IS</b> assuring <b
+                            >THE UNITED STATES GOVERNMENT</b
+                        > that they have income and <b>FINANCIAL ABILITY</b> to <b
+                            >COMPLETELY TAKE CARE OF ALL THE NEEDS OF THE PERSON
+                            THEY ARE SPONSORING THIS INCLUDES HOUSING, FOOD,
+                            HEALTH CARE</b
+                        >, etc.
+                    </Trans>
+                </p>
+
+                <p>
+                    <Trans i18nKey='section_4.paragraph_2'>
+                        <b
+                            >IF THAT PERSON, ENTERS THE USA AND BECOMES A PUBLIC
+                            CHARGE YOU MAY BE RESPONSIBLE TO REPAY THE
+                            GOVERNMENT</b
+                        > for any expenses associated with the person’s presence
+                        in the country because <b>BUT FOR YOUR APPLICATION</b> and
+                        Sponsorship <b>THE PERSON WOULD NOT BE HERE</b>.
+                    </Trans>
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_5.h2')}
+                </h2>
+
+                <p>
+                    {t('section_5.paragraph_1')}
+                </p>
+
+                <p>
+                    {t('section_5.paragraph_2')}
+                </p>
+
+                <p>
+                    {t('section_5.paragraph_3')}
+                </p>
+
+                <p>
+                    <Trans i18nKey='section_5.paragraph_4'>
+                        The application also requests the same type of <b
+                            >INFORMATION</b
+                        > concerning assets and liabilities <b
+                            >ABOUT THE PERSON YOU ARE SENDING FOR</b
+                        >.
+                    </Trans>
+                </p>
+
+                <p>
+                    {t('section_5.paragraph_5')}
+                </p>
+
+                <p>
+                    <b>{t('section_5.paragraph_6')}</b>
+                </p>
+
+                <p>
+                    <b>{t('section_5.paragraph_7')}</b>
+                </p>
+
+                <ul>
+                    <li>
+                        <b>{t('section_5.ul_one_li_1')}</b>
+                    </li>
+
+                    <li>
+                        <b>{t('section_5.ul_one_li_2')}</b>
+                    </li>
+
+                    <li>
+                        <b>{t('section_5.ul_one_li_3')}</b>
+                    </li>
+
+                    <li>
+                        <b>{t('section_5.ul_one_li_4')}</b>
+                    </li>
+
+                    <li>
+                        <b>{t('section_5.ul_one_li_5')}</b>
+                    </li>
+
+                    <li>
+                        <b>{t('section_5.ul_one_li_6')}</b>
+                    </li>
+                </ul>
+
+                <p>
+                    <Trans i18nKey='section_5.paragraph_8'>
+                        <b>PLEASE NOTE CHILDREN UNDER</b> 18 can only travel with
+                        a parent or a legal guardian (no letters of permission or
+                        power of attorney will be accepted).
+                    </Trans>
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <p>
+                    <b>{t('section_6.paragraph_1')}</b>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <ScrollTopBtn />
+</BaseLayout>

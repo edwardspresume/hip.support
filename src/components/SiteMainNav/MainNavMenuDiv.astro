@@ -1,0 +1,59 @@
+---
+import SocialMediaDiv from '../SocialMediaDiv.astro';
+import MainNavMenu from './MainNavMenu.astro';
+import MainNavMenuDivHeader from './MainNavMenuDivHeader.astro';
+
+// Props
+export interface Props {
+    current_page: string;
+}
+
+const { current_page } = Astro.props;
+---
+
+<div id='main_nav_menu_div' class='main_nav_menu_div'>
+    <MainNavMenuDivHeader />
+
+    <MainNavMenu current_page={current_page} />
+
+    <SocialMediaDiv />
+</div>
+
+<style lang='scss' is:global>
+    @use '/src/scss/abstracts/' as *;
+
+    @media (max-width: $mb) {
+        .main_nav_menu_div {
+            top: 0;
+            left: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            translate: -100%;
+            overflow-y: auto;
+            visibility: hidden;
+            background: $primary_color;
+            transition: all 0.2s ease-in-out;
+            padding: 1.5rem 1.4rem 3rem 1.4rem;
+
+            &.main_nav_menu_active {
+                opacity: 1;
+                translate: 0;
+                visibility: visible;
+            }
+        }
+    }
+
+    @media (min-width: $dt) {
+        .main_nav_menu_div {
+            grid-area: main_nav_menu_div;
+        }
+
+        .main_nav_menu_div,
+        .main_nav_menu {
+            display: flex;
+            align-items: center;
+        }
+    }
+</style>

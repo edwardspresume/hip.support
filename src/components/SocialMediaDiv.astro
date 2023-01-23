@@ -1,0 +1,64 @@
+---
+import { Icon } from 'astro-icon';
+---
+
+<div class='socials_div'>
+    <a
+        href='https://www.instagram.com/themariepereira'
+        class='social_media_link'
+    >
+        <Icon
+            name='fa:instagram'
+            width='20'
+            height='20'
+            aria-label='Instagram Icon'
+        />
+
+        <span class='visually_hidden'>instagram.com/themariepereira</span>
+    </a>
+
+    <a href='https://www.twitter.com/jacobs_glamma' class='social_media_link'>
+        <Icon
+            name='fa:twitter'
+            width='20'
+            height='20'
+            aria-label='Instagram Icon'
+        />
+
+        <span class='visually_hidden'>twitter.com/jacobs_glamma</span>
+    </a>
+
+    <a
+        href='https://www.linkedin.com/in/themariepereiraa'
+        class='social_media_link'
+        ><i class='fa-brands fa-linkedin'></i>
+
+        <Icon
+            name='fa:linkedin-square'
+            width='20'
+            height='20'
+            aria-label='Instagram Icon'
+        />
+
+        <span class='visually_hidden'>linkedin.com/in/themariepereiraa</span>
+    </a>
+</div>
+
+<style lang='scss'>
+    @use '/src/scss/abstracts/' as *;
+
+    .socials_div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .social_media_link {
+        margin: 0 1rem;
+    }
+
+    @media (min-width: $dt) {
+        .social_media_link {
+            width: 1.7rem;
+        }
+    }
+</style>

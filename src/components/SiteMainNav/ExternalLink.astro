@@ -1,0 +1,13 @@
+---
+export interface Props {
+    link_url: string;
+}
+
+const { link_url } = Astro.props;
+---
+
+<li>
+    <a href={link_url}>
+        <slot />
+    </a>
+</li>

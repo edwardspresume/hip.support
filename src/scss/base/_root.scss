@@ -1,0 +1,107 @@
+/* =========================================
+                GLOBAL
+========================================= */
+
+@use '../abstracts/' as *;
+
+$text_top_margin: 1.7rem;
+
+body {
+    background: rgb(243, 245, 247);
+}
+
+main {
+    h1 {
+        margin: $text_top_margin 0 4rem 0;
+    }
+
+    h2 {
+        margin: $text_top_margin 0 2rem 0;
+    }
+
+    p {
+        margin: $text_top_margin 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    li {
+        margin: 1rem 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+section {
+    padding: 3rem 0 calc(3rem + $text_top_margin);
+
+    &:nth-child(even) {
+        color: #fff;
+        background: #ebebeb;
+        background: #27272a;
+        // background: #1f222e;
+        // background: #0b0b0b;
+    }
+}
+
+.container {
+    $padding: 1rem;
+    $max_width: 1110px;
+
+    margin-inline: auto;
+    width: min($max_width, 100% - ($padding * 2));
+}
+
+/* Utility classes */
+
+.visually_hidden {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+}
+
+/* =========================================
+                Mobiles
+========================================= */
+
+@media (max-width: $mb) {
+    html {
+        scroll-padding-top: 9rem;
+    }
+
+    body:not(.homepage) main {
+        min-height: 100rem;
+        margin-top: 11rem;
+    }
+
+    main ul {
+        margin-left: 3rem;
+    }
+}
+
+/* =========================================
+            Laptop - Desktop
+========================================= */
+
+@media (min-width: $dt) {
+    html {
+        scroll-padding-top: 13rem;
+    }
+
+    body:not(.homepage) main {
+        min-height: 76rem;
+        margin-top: 13.5rem;
+    }
+
+    main ul {
+        margin-left: 4rem;
+    }
+}

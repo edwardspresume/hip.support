@@ -1,0 +1,66 @@
+---
+import { localizePath } from 'astro-i18next';
+
+import { t } from 'i18next';
+import SocialMediaDiv from './SocialMediaDiv.astro';
+
+const current_year = new Date().getFullYear();
+---
+
+<footer class='site_footer'>
+    <div class='container'>
+        <p>
+            {t('footer:contact_text')}
+            <a href='tel:+1516-263-9089'>516-263-9089</a>
+        </p>
+
+        <SocialMediaDiv />
+
+        <p class='copyright_text'>
+            &copy; {current_year}
+
+            {t('footer:copyright_text')}
+        </p>
+
+        <p>
+            <a href={localizePath('/tos')}>
+                {t('footer:tos_link_text')}
+            </a>
+        </p>
+    </div>
+</footer>
+
+<style lang='scss'>
+    @use '/src/scss/abstracts/' as *;
+
+    .site_footer {
+        color: #fff;
+        text-align: center;
+        padding: 3rem 0rem;
+        background: $primary_color;
+
+        p {
+            font-size: 1.5rem;
+        }
+
+        p:not(:last-of-type) {
+            margin-bottom: 1.3rem;
+        }
+
+        a {
+            color: $secondary_color;
+        }
+
+        .copyright_text {
+            margin-top: 1.3rem;
+        }
+    }
+
+    .site_footer :global(.social_media_link) {
+        width: 1.7rem;
+
+        &:hover {
+            color: $secondary_color;
+        }
+    }
+</style>

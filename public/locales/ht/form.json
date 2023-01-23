@@ -1,0 +1,30 @@
+{
+    "request_heading": "Mande Asistans",
+
+    "volunteer_heading": "Volontè",
+
+    "join_heading": "Antre nan HIP Jodi a",
+
+    "application_paragraph": "Tanpri fè nou konnen nan ki aplikasyon ou bezwen asistans.",
+
+    "labels": {
+        "name": "Non",
+        "email": "Imèl",
+        "phone": "Nimewo telefòn",
+        "application": "Aplikasyon",
+        "skills": "Tanpri fè lis konpetans ou (separe vigil)",
+        "resume": "Tanpri mete yon rezime",
+        "message": "Mesaj",
+        "submit": "Voye"
+    },
+
+    "selector_options": {
+        "default_option": "Tanpri chwazi yon aplikasyon",
+
+        "travel_document": "Dokiman vwayaj",
+
+        "employment_authorization": "Otorizasyon Travay",
+
+        "citizenship_application": "Aplikasyon Sitwayènte"
+    }
+}

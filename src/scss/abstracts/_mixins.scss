@@ -1,0 +1,7 @@
+@mixin filter_brightness($duration, $brightness) {
+    transition: filter $duration ease-in-out;
+
+    &:hover {
+        filter: brightness($brightness);
+    }
+}

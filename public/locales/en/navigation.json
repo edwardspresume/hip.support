@@ -1,0 +1,34 @@
+{
+    "main_tabs": {
+        "home": "home",
+        "media": "media",
+        "uscis": "uscis",
+        "info": "info",
+        "request assistance": "request assistance",
+        "articles": "articles",
+        "team": "team",
+        "volunteer": "volunteer",
+        "join": "join",
+        "donate": "donate"
+    },
+
+    "uscis_links": {
+        "Travel Document": "Travel Document",
+        "Employment Authorization": "Employment Authorization",
+        "TPS": "TPS",
+        "Citizenship Application": "Citizenship Application",
+        "N 400": "N 400",
+        "Government Fees": "Government Fees"
+    },
+
+    "info_links": {
+        "I-134A Sponsorship": "I-134A Sponsorship",
+
+        "What Are the Four Types Of Immigration?": "What Are the Four Types Of Immigration?",
+
+        "Asylum Seeker": "Asylum Seeker"
+    },
+
+    "language_label_text": "Chwazi Yon Lang",
+    "134a": "CLICK HERE: FOR INFO ON PRESIDENT BIDEN'S SPECIAL HUMANITARIAN SPONSORSHIP PROGRAM FOR HAITIANS"
+}

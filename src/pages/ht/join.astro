@@ -1,0 +1,29 @@
+---
+import { changeLanguage, t } from "i18next";
+import Form from "../../components/Form.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+changeLanguage("ht");
+
+const current_page = "join_page";
+const current_page_meta_title = "Join | HIP - HAITI IMMIGRATION PROJECT";
+const current_page_meta_description = "Join the haiti immigration project to help the cause";
+---
+
+<BaseLayout
+    current_page={current_page}
+    current_page_meta_title={current_page_meta_title}
+    current_page_meta_description={current_page_meta_description}
+>
+    <main>
+        <section>
+            <div class='container'>
+                <h1>
+                    {t('form:join_heading')}
+                </h1>
+
+                <Form page={current_page} form_name='Join HIP' />
+            </div>
+        </section>
+    </main>
+</BaseLayout>

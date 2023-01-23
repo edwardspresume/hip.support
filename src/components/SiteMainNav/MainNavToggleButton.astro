@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon';
+
+// Props
+export interface Props {
+    aria_label: string;
+    selector_name: string;
+    icon_name: string;
+    icon_size: string;
+}
+
+const { selector_name, aria_label, icon_name, icon_size } = Astro.props;
+---
+
+<button
+    type='button'
+    id={selector_name}
+    class={selector_name}
+    aria-controls='main_nav_menu_div'
+>
+    <Icon
+        name={icon_name}
+        width={icon_size}
+        height={icon_size}
+        aria-label={aria_label}
+    />
+</button>
+
+<style lang='scss'>
+    @use '/src/scss/abstracts/' as *;
+
+    button {
+        color: #fff;
+    }
+
+    @media (max-width: $mb) {
+        .open_main_nav_btn {
+            justify-self: end;
+        }
+    }
+
+    @media (min-width: $dt) {
+        .open_main_nav_btn {
+            display: none;
+        }
+    }
+</style>

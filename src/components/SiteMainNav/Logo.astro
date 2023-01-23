@@ -1,0 +1,21 @@
+---
+import { localizePath } from 'astro-i18next';
+---
+
+<a href={localizePath('/')} class='logo' aria-label='Go home'>H&#46I&#46P</a>
+
+<style lang='scss' is:global>
+    @use '/src/scss/abstracts/' as *;
+    .logo {
+        font-size: 4rem;
+        grid-area: logo;
+        font-weight: bold;
+        color: transparent;
+        justify-self: center;
+        letter-spacing: 0.3rem;
+        font-family: sans-serif;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-image: linear-gradient(75deg, #0077ff 30%, #ff0000 70%);
+    }
+</style>

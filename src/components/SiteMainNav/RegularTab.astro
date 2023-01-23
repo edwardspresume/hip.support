@@ -1,0 +1,33 @@
+---
+export interface Props {
+    active_page: boolean;
+    tab_link: string;
+    data_section_tab: string;
+}
+
+const { active_page, tab_link, data_section_tab } = Astro.props;
+---
+
+<li>
+    <a
+        class:list={['main_nav_tab', { active_page }]}
+        href={tab_link}
+        data-section-tab={data_section_tab}
+    >
+        <slot />
+    </a>
+</li>
+
+<style lang='scss' is:global>
+    @use '/src/scss/abstracts/' as *;
+
+    .site_main_nav .main_nav_tab.active_page {
+        color: $secondary_color;
+    }
+
+    @media (min-width: $dt) {
+        .main_nav_tab {
+            white-space: nowrap;
+        }
+    }
+</style>

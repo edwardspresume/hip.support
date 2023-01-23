@@ -1,0 +1,30 @@
+---
+import { changeLanguage, setDefaultNamespace, t } from "i18next";
+import TeamTable from "../components/Team/TeamTable.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+changeLanguage("en");
+
+setDefaultNamespace("team");
+const current_page = "team_page";
+const current_page_meta_title = "Meet Our Team | HIP - HAITI IMMIGRATION PROJECT";
+const current_page_meta_description = "Meet Our Team | HIP - HAITI IMMIGRATION PROJECT";
+---
+
+<BaseLayout
+    current_page={current_page}
+    current_page_meta_title={current_page_meta_title}
+    current_page_meta_description={current_page_meta_description}
+>
+    <main>
+        <section>
+            <div class='container'>
+                <h1>
+                    {t('h1')}
+                </h1>
+
+                <TeamTable />
+            </div>
+        </section>
+    </main>
+</BaseLayout>

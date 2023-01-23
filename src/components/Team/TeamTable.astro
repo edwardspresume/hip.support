@@ -1,0 +1,34 @@
+---
+import { t } from 'i18next';
+import TeamCards from './TeamCards.astro';
+import ritha_pierre from '/src/assets/images/team/ritha_pierre.jpg';
+---
+
+<div class='team_div'>
+    <TeamCards
+        name={t('ritha_pierre.name')}
+        img_src={ritha_pierre}
+        img_alt='Ritha Pierre'
+    >
+        <p>
+            {t('ritha_pierre.profile.paragraph_1')}
+        </p>
+
+        <p>
+            {t('ritha_pierre.profile.paragraph_2')}
+        </p>
+    </TeamCards>
+</div>
+
+<style lang='scss'>
+    .team_div {
+        gap: 4rem;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 40rem));
+    }
+
+    .team_div p {
+        margin-top: unset;
+    }
+</style>

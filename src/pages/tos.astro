@@ -1,0 +1,169 @@
+---
+import { changeLanguage, setDefaultNamespace, t } from "i18next";
+import ScrollTopBtn from "../components/ScrollTopBtn.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+changeLanguage("en");
+
+setDefaultNamespace("tos");
+const current_page = "tos_page";
+const current_page_meta_title = "Terms Of Use | HIP - HAITI IMMIGRATION PROJECT";
+const current_page_meta_description = "HIP Terms of use";
+---
+
+<BaseLayout
+    current_page={current_page}
+    current_page_meta_title={current_page_meta_title}
+    current_page_meta_description={current_page_meta_description}
+>
+    <main id='main'>
+        <section>
+            <div class='container'>
+                <h1>
+                    {t('section_1.h1')}
+                </h1>
+
+                <h2>
+                    {t('section_1.h2')}
+                </h2>
+
+                <p>
+                    {t('section_1.paragraph_1')}
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_2.h2')}
+                </h2>
+
+                <p>
+                    {t('section_2.paragraph_1')}
+                </p>
+
+                <p>
+                    {t('section_2.paragraph_2')}
+                </p>
+
+                <p>
+                    {t('section_2.paragraph_3')}
+                </p>
+
+                <p>
+                    {t('section_2.paragraph_4')}
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_3.h2')}
+                </h2>
+
+                <p>
+                    {t('section_3.paragraph_1')}
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_4.h2')}
+                </h2>
+                <p>
+                    {t('section_4.paragraph_1')}
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_5.h2')}
+                </h2>
+
+                <p>
+                    {t('section_5.paragraph_1')}
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_6.h2')}
+                </h2>
+
+                <p>
+                    {t('section_6.paragraph_1')}
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_7.h2')}
+                </h2>
+
+                <p>
+                    {t('section_7.paragraph_1')}
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_8.h2')}
+                </h2>
+
+                <p>
+                    {t('section_8.paragraph_1')}
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_9.h2')}
+                </h2>
+
+                <p>
+                    {t('section_9.paragraph_1')}
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_10.h2')}
+                </h2>
+
+                <p>
+                    {t('section_10.paragraph_1')}
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class='container'>
+                <h2>
+                    {t('section_11.h2')}
+                </h2>
+
+                <p>
+                    {t('section_11.paragraph_1')}
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <ScrollTopBtn />
+</BaseLayout>

@@ -1,0 +1,34 @@
+{
+    "main_tabs": {
+        "home": "lakay",
+        "media": "medya",
+        "uscis": "uscis",
+        "info": "enfò",
+        "request assistance": "mande asistans",
+        "articles": "atik yo",
+        "team": "ekip",
+        "volunteer": "volontè",
+        "join": "rantre",
+        "donate": "fè don"
+    },
+
+    "uscis_links": {
+        "Travel Document": "Dokiman vwayaj",
+        "Employment Authorization": "Otorizasyon Travay",
+        "TPS": "TPS",
+        "Citizenship Application": "Aplikasyon Sitwayènte",
+        "N 400": "N 400",
+        "Government Fees": "Frè Gouvènman"
+    },
+
+    "info_links": {
+        "I-134A Sponsorship": "I-134A Patwonaj",
+
+        "What Are the Four Types Of Immigration?": "Ki Kat Kalite Imigrasyon yo?",
+
+        "Asylum Seeker": "Chèche Azil"
+    },
+
+    "language_label_text": "Select A Language",
+    "134a": "KLIKE LA: POU ENFÒMASYON SOU PWOGRAM ESPESYAL SPONSORSHIP IMANITÈ PREZIDAN BIDEN POU AYISYEN"
+}

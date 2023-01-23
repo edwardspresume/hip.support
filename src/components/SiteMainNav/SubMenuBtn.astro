@@ -1,0 +1,56 @@
+---
+import { Icon } from 'astro-icon';
+
+export interface Props {
+    button_display_name: string;
+    button_data_name: string;
+}
+
+const { button_display_name, button_data_name } = Astro.props;
+---
+
+<button
+    type='button'
+    class='main_nav_tab toggle_submenu_btn'
+    aria-expanded='false'
+    aria-controls={`${button_data_name}_submenu`}
+>
+    <span>{button_display_name}</span>
+
+    <Icon
+        name='ep:arrow-down-bold'
+        width='15'
+        height='15'
+        aria-label='Dropdown arrow icon'
+    />
+</button>
+
+<style lang='scss'>
+    @use '/src/scss/abstracts/' as *;
+
+    .toggle_submenu_btn {
+        display: flex;
+        align-items: center;
+    }
+
+    @media (max-width: $mb) {
+        .toggle_submenu_btn {
+            margin: 0 auto;
+        }
+
+        .toggle_submenu_btn svg {
+            margin-left: 0.7rem;
+            transition: rotate 0.3s ease-in-out;
+        }
+
+        .toggle_submenu_btn[aria-expanded='true'] svg {
+            rotate: 180deg;
+        }
+    }
+
+    @media (min-width: $dt) {
+        .toggle_submenu_btn svg {
+            margin-left: 0.5rem;
+        }
+    }
+</style>

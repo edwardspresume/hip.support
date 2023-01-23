@@ -1,0 +1,59 @@
+---
+import { changeLanguage, t } from "i18next";
+import Form from "../../components/Form.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+changeLanguage("ht");
+
+const current_page = "volunteer_page";
+const current_page_meta_title = "Volunteer | HIP - HAITI IMMIGRATION PROJECT";
+const current_page_meta_description = "Volunteer with the haiti immigration project to help the cause";
+---
+
+<BaseLayout
+    current_page={current_page}
+    current_page_meta_title={current_page_meta_title}
+    current_page_meta_description={current_page_meta_description}
+>
+    <main>
+        <section>
+            <div class='container'>
+                <h1>
+                    {t('form:volunteer_heading')}
+                </h1>
+
+                <Form page={current_page} form_name='Volunteer'>
+                    <label>
+                        <span class='label_text'>
+                            {t('form:labels.skills')}
+
+                            *</span
+                        >
+                        <input
+                            class='form_input'
+                            type='text'
+                            name='skills'
+                            minlength='3'
+                            required
+                        />
+                    </label>
+
+                    <label>
+                        <span class='label_text'>
+                            {t('form:labels.resume')}
+
+                            *</span
+                        >
+                        <input
+                            class='file-input form_input'
+                            type='file'
+                            name='resume'
+                            accept='.pdf, .doc, .docx, .txt'
+                            required
+                        />
+                    </label>
+                </Form>
+            </div>
+        </section>
+    </main>
+</BaseLayout>

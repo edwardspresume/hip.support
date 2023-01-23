@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon';
+
+export interface Props {
+    target?: string;
+}
+
+const { target = 'main' } = Astro.props;
+---
+
+<a href={`#${target}`} class='scroll_top_link' id='scroll_top_link'>
+    <Icon
+        name='bi:arrow-up-square-fill'
+        width='30'
+        height='30'
+        aria-label='Dropdown arrow icon'
+        fill-opacity='.4'
+    />
+</a>
+
+<style lang='scss'>
+    @use '/src/scss/abstracts/' as *;
+
+    .scroll_top_link {
+        display: none;
+        position: fixed;
+
+        &.show {
+            display: block;
+        }
+
+        svg {
+            color: #000;
+            border-radius: 7px;
+            background: #fff;
+            box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        @include filter_brightness(0.2s, 85%);
+    }
+
+    /* =========================================
+                Mobiles
+========================================= */
+
+    @media (max-width: $mb) {
+        .scroll_top_link {
+            $btn-distance: 17px;
+
+            right: $btn-distance;
+            bottom: $btn-distance;
+        }
+    }
+
+    /* =========================================
+            Laptop - Desktop
+========================================= */
+
+    @media (min-width: $dt) {
+        .scroll_top_link {
+            $btn-distance: 25px;
+
+            right: $btn-distance;
+            bottom: $btn-distance;
+        }
+    }
+</style>
+
+<script>
+    window.onscroll = () => hide_scroll_top_btn();
+
+    function hide_scroll_top_btn() {
+        const scroll_top_btn = document.getElementById(
+            'scroll_top_link'
+        ) as HTMLElement;
+
+        if (
+            document.body.scrollTop > 250 ||
+            document.documentElement.scrollTop > 250
+        ) {
+            scroll_top_btn.classList.add('show');
+        } else {
+            scroll_top_btn.classList.remove('show');
+        }
+    }
+</script>

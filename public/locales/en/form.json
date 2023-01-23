@@ -1,0 +1,30 @@
+{
+    "request_heading": "Request Assistance",
+
+    "volunteer_heading": "Volunteer",
+
+    "join_heading": "Join HIP Today",
+
+    "application_paragraph": "Please let us know which application you need assistance with. ",
+
+    "labels": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "application": "Application",
+        "skills": "Please list your skills (comma separated)",
+        "resume": "Please include a resume",
+        "message": "Message",
+        "submit": "Submit"
+    },
+
+    "selector_options": {
+        "default_option": "Please select an application",
+
+        "travel_document": "Travel Document",
+
+        "employment_authorization": "Employment Authorization",
+
+        "citizenship_application": "Citizenship Application"
+    }
+}
