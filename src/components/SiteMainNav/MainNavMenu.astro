@@ -109,8 +109,7 @@ const { current_page } = Astro.props;
             tab.is_submenu === false ? (
                 <RegularTab
                     tab_link={localizePath(tab.url)}
-                    data_section_tab={tab.is_section_tab}
-                    active_page={current_page.includes(tab.data_name)}>
+                    data_section_tab={tab.is_section_tab}>
                     {t(`navigation:main_tabs.${tab.display_name}`)}
                 </RegularTab>
             ) : (

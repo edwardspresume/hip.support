@@ -1,11 +1,13 @@
 ---
 export interface Props {
-    active_page: boolean;
     tab_link: string;
     data_section_tab: string;
 }
 
-const { active_page, tab_link, data_section_tab } = Astro.props;
+const { tab_link, data_section_tab } = Astro.props;
+
+const { pathname } = Astro.url;
+const active_page = tab_link === pathname;
 ---
 
 <li>
