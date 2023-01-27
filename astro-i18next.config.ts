@@ -15,6 +15,7 @@ const config: AstroI18nextConfig = {
         'navigation',
         'team',
         'tos',
+        '404',
     ],
     routes: {
         ht: {
@@ -26,6 +27,7 @@ const config: AstroI18nextConfig = {
             donate: 'donate',
             tos: 'tos',
             'i-134a-sponsorship': 'i-134a-sponsorship',
+            '404': '404',
         },
     },
 };

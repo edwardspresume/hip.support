@@ -1,0 +1,66 @@
+---
+import { localizePath } from "astro-i18next";
+import i18next, { changeLanguage, setDefaultNamespace, t } from "i18next";
+
+changeLanguage("ht");
+
+setDefaultNamespace("404");
+---
+
+<!DOCTYPE html>
+<html lang={i18next.language}>
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <title>404</title>
+    </head>
+    <body>
+        <main>
+            <h1>{t('h1')}</h1>
+
+            <p>
+                {t('paragraph')}
+            </p>
+
+            <a href={localizePath('/')}> {t('home_link_text')}</a>
+        </main>
+    </body>
+</html>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        display: grid;
+        height: 100vh;
+        height: 100dvh;
+        place-items: center;
+        background: #34383c;
+        background: #ebebeb;
+    }
+
+    h1,
+    p {
+        margin-bottom: 1rem;
+    }
+
+    main {
+        padding: 20px;
+        max-width: 410px;
+        background: #fff;
+        text-align: center;
+        border-radius: 8px;
+        color: rgb(14, 30, 37);
+        box-shadow: 0 2px 4px 0 rgba(14, 30, 37, 0.16);
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 25px;
+        }
+    }
+</style>
