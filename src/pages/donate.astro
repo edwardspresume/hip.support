@@ -1,14 +1,16 @@
 ---
-import { changeLanguage, setDefaultNamespace, t } from "i18next";
-import DonateLink from "../components/DonateLink.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { changeLanguage, setDefaultNamespace, t } from 'i18next';
+import DonateLink from '../components/DonateLink.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-changeLanguage("en");
+changeLanguage('en');
 
-setDefaultNamespace("donate");
-const current_page = "donate_page";
-const current_page_meta_title = "Support HAITI IMMIGRATION PROJECT by donating to Assist Immigrants in Need";
-const current_page_meta_description = "Donate to the Haiti Immigration Project and help qualified undocumented immigrants apply for TPS, work permits, and travel documents. Your support will also assist qualified documented immigrants in their pursuit of citizenship and create an emergency fund for those facing crisis.";
+setDefaultNamespace('donate');
+const current_page = 'donate_page';
+const current_page_meta_title =
+    'Support HAITI IMMIGRATION PROJECT by donating to Assist Immigrants in Need';
+const current_page_meta_description =
+    'Donate to the Haiti Immigration Project and help qualified undocumented immigrants apply for TPS, work permits, and travel documents. Your support will also assist qualified documented immigrants in their pursuit of citizenship and create an emergency fund for those facing crisis.';
 ---
 
 <BaseLayout
@@ -39,9 +41,7 @@ const current_page_meta_description = "Donate to the Haiti Immigration Project a
                     {t('section_2.paragraph_1')}
                 </p>
 
-                <p>
-                    <DonateLink />
-                </p>
+                <DonateLink />
             </div>
         </section>
 
