@@ -7,7 +7,15 @@
 $text_top_margin: 1.7rem;
 
 body {
+    display: flex;
+    min-height: 100dvh;
+    min-height: 100vh;
+    flex-direction: column;
     background: rgb(243, 245, 247);
+}
+
+body:not(.homepage) main {
+    flex: 1 1 0%;
 }
 
 main {
@@ -77,7 +85,6 @@ section {
     }
 
     body:not(.homepage) main {
-        min-height: 100rem;
         margin-top: 11rem;
     }
 
@@ -96,7 +103,6 @@ section {
     }
 
     body:not(.homepage) main {
-        min-height: 76rem;
         margin-top: 13.5rem;
     }
 
