@@ -1,66 +1,60 @@
 ---
-import { localizePath } from 'astro-i18next';
-import i18next, { changeLanguage, setDefaultNamespace, t } from 'i18next';
+import { localizePath } from "astro-i18next";
+import { changeLanguage, setDefaultNamespace, t } from "i18next";
+import ButtonStyleLink from "../components/ButtonStyleLink.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-changeLanguage('en');
+changeLanguage("en");
 
-setDefaultNamespace('404');
+setDefaultNamespace("404");
+const current_page = "four_0_four";
+const current_page_meta_title = "Page Not Found | HIP - HAITI IMMIGRATION PROJECT";
+const current_page_meta_description = "404 error, page not found";
 ---
 
-<!DOCTYPE html>
-<html lang={i18next.language}>
-    <head>
-        <meta charset='UTF-8' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <title>404</title>
-    </head>
-    <body>
-        <main>
-            <h1>{t('h1')}</h1>
+<BaseLayout
+    {current_page}
+    {current_page_meta_title}
+    {current_page_meta_description}
+>
+    <main>
+        <section>
+            <div class='container'>
+                <h1>{t('h1')}</h1>
 
-            <p>
-                {t('paragraph')}
-            </p>
+                <p>
+                    {t('paragraph')}
+                </p>
 
-            <a href={localizePath('/')}> {t('home_link_text')}</a>
-        </main>
-    </body>
-</html>
+                <ButtonStyleLink
+                    href={localizePath('/')}
+                    text={t('home_link_text')}
+                    icon={{
+                        name: 'ic:round-home',
+                        side: 'left',
+                    }}
+                />
+            </div>
+        </section>
+    </main>
+</BaseLayout>
 
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        display: grid;
-        height: 100vh;
-        height: 100dvh;
-        padding: 0 10px;
-        place-items: center;
-        background: #ebebeb;
-    }
-
-    h1,
-    p {
-        margin-bottom: 1rem;
-    }
+<style lang='scss'>
+    @use '/src/scss/abstracts/' as *;
 
     main {
-        padding: 20px;
-        max-width: 600px;
-        background: #fff;
+        display: grid;
         text-align: center;
-        border-radius: 8px;
-        color: rgb(14, 30, 37);
-        box-shadow: 0 2px 4px 0 rgba(14, 30, 37, 0.16);
+        place-items: center;
+
+        p {
+            margin-bottom: 2.5rem;
+        }
     }
 
-    @media (max-width: 768px) {
-        h1 {
-            font-size: 25px;
+    @media (max-width: $mb) {
+        body.four_0_four main {
+            min-height: 66vh;
         }
     }
 </style>
