@@ -1,17 +1,19 @@
 ---
-import { changeLanguage, setDefaultNamespace, t } from "i18next";
+import { changeLanguage, setDefaultNamespace, t } from 'i18next';
 // site components
-import DonateLink from "../components/DonateLink.astro";
-import HomePageArticles from "../components/HomePageArticles.astro";
-import ScrollTopBtn from "../components/ScrollTopBtn.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import DonateLink from '../components/DonateLink.astro';
+import HomePageArticles from '../components/HomePageArticles.astro';
+import ScrollTopBtn from '../components/ScrollTopBtn.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-changeLanguage("en");
+changeLanguage('en');
 
-setDefaultNamespace("home");
-const current_page = "homepage";
-const current_page_meta_title = "Empowering Haitian Immigrants: The Haiti Immigration Project";
-const current_page_meta_description = "Support the Haiti Immigration Project and make a positive impact on immigrant families in your community. Our non-profit organization is dedicated to serving and empowering immigrant families through networking opportunities and supportive services.";
+setDefaultNamespace('home');
+const current_page = 'homepage';
+const current_page_meta_title =
+    'Empowering Haitian Immigrants: The Haiti Immigration Project';
+const current_page_meta_description =
+    'Support the Haiti Immigration Project and make a positive impact on immigrant families in your community. Our non-profit organization is dedicated to serving and empowering immigrant families through networking opportunities and supportive services.';
 ---
 
 <BaseLayout
@@ -174,8 +176,8 @@ const current_page_meta_description = "Support the Haiti Immigration Project and
         text-align: center;
         place-items: center;
         margin-top: $margin;
-        height: calc(100vh - $margin);
         height: calc(100dvh - $margin);
+        height: calc(100vh - $margin);
         background-image: url('/src/assets/images/header.webp');
         background-size: cover;
         background-position: center;
@@ -198,12 +200,6 @@ const current_page_meta_description = "Support the Haiti Immigration Project and
 
         h2 {
             margin-bottom: 4rem;
-        }
-    }
-
-    @media (max-width: $mb) {
-        .homepage_header {
-            background-attachment: scroll;
         }
     }
 
