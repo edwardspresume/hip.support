@@ -13,7 +13,7 @@
         "phone": "Phone",
         "application": "Application",
         "skills": "Please list your skills (comma separated)",
-        "resume": "Please include a resume",
+        "resume": "Please include a resume (6MB limit)",
         "message": "Message",
         "submit": "Submit"
     },

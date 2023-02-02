@@ -23,9 +23,7 @@ const pageInfo: PageInfo = {
                 <Form page={pageInfo.current_page} form_name='Volunteer'>
                     <label>
                         <span class='label_text'>
-                            {t('form:labels.skills')}
-
-                            *</span
+                            {t('form:labels.skills')} *</span
                         >
                         <input
                             class='form_input'
@@ -38,9 +36,7 @@ const pageInfo: PageInfo = {
 
                     <label>
                         <span class='label_text'>
-                            {t('form:labels.resume')}
-
-                            *</span
+                            {t('form:labels.resume')} *</span
                         >
                         <input
                             class='file-input form_input'
@@ -55,3 +51,25 @@ const pageInfo: PageInfo = {
         </section>
     </main>
 </BaseLayout>
+
+<script>
+    const form = document.querySelector('form') as HTMLFormElement;
+    const htmlTag = document.querySelector('html') as HTMLHtmlElement;
+    const currentLanguage = htmlTag.getAttribute('lang');
+    const MAX_SIZE = 6 * 1000 * 1000; // 6MB limit
+
+    const alertMessage =
+        currentLanguage === 'en'
+            ? 'File size is too big! It needs to be 6MB or less, try reducing the file and resubmit.'
+            : 'Gwosè dosye a twò gwo! Li bezwen 6MB oswa mwens, eseye diminye fichye a epi soumèt ankò';
+
+    form.addEventListener('submit', (event: SubmitEvent) => {
+        const formData = new FormData(form);
+        const file = formData.get('resume');
+
+        if (file instanceof File && file.size > MAX_SIZE) {
+            event.preventDefault();
+            alert(alertMessage);
+        }
+    });
+</script>
