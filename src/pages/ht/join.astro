@@ -1,16 +1,18 @@
 ---
 import { changeLanguage, t } from "i18next";
 import Form from "../../components/Form.astro";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout, { Props as PageInfo } from "../../layouts/BaseLayout.astro";
 
 changeLanguage("ht");
 
-const current_page = "join_page";
-const metaTitle = "Join | HIP - HAITI IMMIGRATION PROJECT";
-const metaDescription = "Join the haiti immigration project to help the cause";
+const pageInfo: PageInfo = {
+    current_page: "join_page",
+    metaTitle: "Join | HIP - HAITI IMMIGRATION PROJECT",
+    metaDescription: "Join the haiti immigration project to help the cause",
+};
 ---
 
-<BaseLayout {current_page} {metaTitle} {metaDescription}>
+<BaseLayout {...pageInfo}>
     <main>
         <section>
             <div class='container'>
@@ -18,7 +20,7 @@ const metaDescription = "Join the haiti immigration project to help the cause";
                     {t('form:join_heading')}
                 </h1>
 
-                <Form page={current_page} form_name='Join HIP' />
+                <Form page={pageInfo.current_page} form_name='Join HIP' />
             </div>
         </section>
     </main>

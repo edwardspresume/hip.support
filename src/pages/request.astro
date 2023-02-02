@@ -1,16 +1,18 @@
 ---
 import { changeLanguage, t } from "i18next";
 import Form from "../components/Form.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout, { Props as PageInfo } from "../layouts/BaseLayout.astro";
 
 changeLanguage("en");
 
-const current_page = "request_page";
-const metaTitle = "Request Assistance | HIP - HAITI IMMIGRATION PROJECT";
-const metaDescription = "Request assistance for your USCIS applications from HAITI IMMIGRATION PROJECT";
+const pageInfo: PageInfo = {
+    current_page: "request_page",
+    metaTitle: "Request Assistance | HIP - HAITI IMMIGRATION PROJECT",
+    metaDescription: "Request assistance for your USCIS applications from HAITI IMMIGRATION PROJECT",
+};
 ---
 
-<BaseLayout {current_page} {metaTitle} {metaDescription}>
+<BaseLayout {...pageInfo}>
     <main>
         <section>
             <div class='container'>
@@ -18,7 +20,10 @@ const metaDescription = "Request assistance for your USCIS applications from HAI
                     {t('form:request_heading')}
                 </h1>
 
-                <Form page={current_page} form_name='Assistance request'>
+                <Form
+                    page={pageInfo.current_page}
+                    form_name='Assistance request'
+                >
                     <label>
                         <span class='label_text'>
                             {t('form:labels.application')}

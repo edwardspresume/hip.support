@@ -4,17 +4,19 @@ import { changeLanguage, setDefaultNamespace, t } from "i18next";
 import DonateLink from "../components/DonateLink.astro";
 import HomePageArticles from "../components/HomePageArticles.astro";
 import ScrollTopBtn from "../components/ScrollTopBtn.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout, { Props as PageInfo } from "../layouts/BaseLayout.astro";
 
 changeLanguage("en");
 
 setDefaultNamespace("home");
-const current_page = "homepage";
-const metaTitle = "Empowering Haitian Immigrants: The Haiti Immigration Project";
-const metaDescription = "Support the Haiti Immigration Project and make a positive impact on immigrant families in your community. Our non-profit organization is dedicated to serving and empowering immigrant families through networking opportunities and supportive services.";
+const pageInfo: PageInfo = {
+    current_page: "homepage",
+    metaTitle: "Empowering Haitian Immigrants: The Haiti Immigration Project",
+    metaDescription: "Support the Haiti Immigration Project and make a positive impact on immigrant families in your community. Our non-profit organization is dedicated to serving and empowering immigrant families through networking opportunities and supportive services.",
+};
 ---
 
-<BaseLayout {current_page} {metaTitle} {metaDescription}>
+<BaseLayout {...pageInfo}>
     <header
         id='homepage_header'
         class='homepage_header'

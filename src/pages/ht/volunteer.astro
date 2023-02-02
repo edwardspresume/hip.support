@@ -1,16 +1,18 @@
 ---
 import { changeLanguage, t } from "i18next";
 import Form from "../../components/Form.astro";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout, { Props as PageInfo } from "../../layouts/BaseLayout.astro";
 
 changeLanguage("ht");
 
-const current_page = "volunteer_page";
-const metaTitle = "Volunteer | HIP - HAITI IMMIGRATION PROJECT";
-const metaDescription = "Volunteer with the haiti immigration project to help the cause";
+const pageInfo: PageInfo = {
+    current_page: "volunteer_page",
+    metaTitle: "Volunteer | HIP - HAITI IMMIGRATION PROJECT",
+    metaDescription: "Volunteer with the haiti immigration project to help the cause",
+};
 ---
 
-<BaseLayout {current_page} {metaTitle} {metaDescription}>
+<BaseLayout {...pageInfo}>
     <main>
         <section>
             <div class='container'>
@@ -18,7 +20,7 @@ const metaDescription = "Volunteer with the haiti immigration project to help th
                     {t('form:volunteer_heading')}
                 </h1>
 
-                <Form page={current_page} form_name='Volunteer'>
+                <Form page={pageInfo.current_page} form_name='Volunteer'>
                     <label>
                         <span class='label_text'>
                             {t('form:labels.skills')}

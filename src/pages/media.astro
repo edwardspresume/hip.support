@@ -2,16 +2,18 @@
 import { changeLanguage, t } from "i18next";
 import ScrollTopBtn from "../components/ScrollTopBtn.astro";
 import VideosDiv from "../components/VideosDiv.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout, { Props as PageInfo } from "../layouts/BaseLayout.astro";
 
 changeLanguage("en");
 
-const current_page = "media_page";
-const metaTitle = "Media | HIP - HAITI IMMIGRATION PROJECT";
-const metaDescription = "Stay informed and connected with the Haiti Immigration Project's media page! Learn about our latest updates and events through our media resources.";
+const pageInfo: PageInfo = {
+    current_page: "media_page",
+    metaTitle: "Media | HIP - HAITI IMMIGRATION PROJECT",
+    metaDescription: "Stay informed and connected with the Haiti Immigration Project's media page! Learn about our latest updates and events through our media resources.",
+};
 ---
 
-<BaseLayout {current_page} {metaTitle} {metaDescription}>
+<BaseLayout {...pageInfo}>
     <main id='main'>
         <section>
             <div class='container'>

@@ -1,17 +1,19 @@
 ---
 import { changeLanguage, setDefaultNamespace, t } from "i18next";
 import ScrollTopBtn from "../../components/ScrollTopBtn.astro";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout, { Props as PageInfo } from "../../layouts/BaseLayout.astro";
 
 changeLanguage("ht");
 
 setDefaultNamespace("tos");
-const current_page = "tos_page";
-const metaTitle = "Terms Of Use | HIP - HAITI IMMIGRATION PROJECT";
-const metaDescription = "HIP Terms of use";
+const pageInfo: PageInfo = {
+    current_page: "tos_page",
+    metaTitle: "Terms Of Use | HIP - HAITI IMMIGRATION PROJECT",
+    metaDescription: "HIP Terms of use",
+};
 ---
 
-<BaseLayout {current_page} {metaTitle} {metaDescription}>
+<BaseLayout {...pageInfo}>
     <main id='main'>
         <section>
             <div class='container'>

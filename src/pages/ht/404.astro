@@ -2,17 +2,20 @@
 import { localizePath } from "astro-i18next";
 import { changeLanguage, setDefaultNamespace, t } from "i18next";
 import ButtonStyleLink from "../../components/ButtonStyleLink.astro";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout, { Props as PageInfo } from "../../layouts/BaseLayout.astro";
 
 changeLanguage("ht");
 
 setDefaultNamespace("404");
-const current_page = "four_0_four";
-const metaTitle = "Page Not Found | HIP - HAITI IMMIGRATION PROJECT";
-const metaDescription = "404 error, page not found";
+const pageInfo: PageInfo = {
+    indexPage: false,
+    current_page: "four_0_four",
+    metaTitle: "Page Not Found | HIP - HAITI IMMIGRATION PROJECT",
+    metaDescription: "404 error, page not found",
+};
 ---
 
-<BaseLayout indexPage={false} {current_page} {metaTitle} {metaDescription}>
+<BaseLayout {...pageInfo}>
     <main>
         <section>
             <div class='container'>

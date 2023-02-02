@@ -2,17 +2,19 @@
 import { Trans } from "astro-i18next/components";
 import { changeLanguage, setDefaultNamespace, t } from "i18next";
 import ScrollTopBtn from "../components/ScrollTopBtn.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout, { Props as PageInfo } from "../layouts/BaseLayout.astro";
 
 changeLanguage("en");
 
 setDefaultNamespace("i-134a-sponsorship");
-const current_page = "i-134A-sponsorship";
-const metaTitle = "I-134A Sponsorship | HIP - HAITI IMMIGRATION PROJECT";
-const metaDescription = "I-134A, Online Request to be a Supporter and Declaration of Financial Support";
+const pageInfo: PageInfo = {
+    current_page: "i-134A-sponsorship",
+    metaTitle: "I-134A Sponsorship | HIP - HAITI IMMIGRATION PROJECT",
+    metaDescription: "I-134A, Online Request to be a Supporter and Declaration of Financial Support",
+};
 ---
 
-<BaseLayout {current_page} {metaTitle} {metaDescription}>
+<BaseLayout {...pageInfo}>
     <main id='main'>
         <section>
             <div class='container'>

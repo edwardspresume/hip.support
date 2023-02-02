@@ -1,17 +1,19 @@
 ---
 import { changeLanguage, setDefaultNamespace, t } from "i18next";
 import TeamTable from "../components/Team/TeamTable.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout, { Props as PageInfo } from "../layouts/BaseLayout.astro";
 
 changeLanguage("en");
 
 setDefaultNamespace("team");
-const current_page = "team_page";
-const metaTitle = "Meet Our Team | HIP - HAITI IMMIGRATION PROJECT";
-const metaDescription = "Meet Our Team | HIP - HAITI IMMIGRATION PROJECT";
+const pageInfo: PageInfo = {
+    current_page: "team_page",
+    metaTitle: "Meet Our Team | HIP - HAITI IMMIGRATION PROJECT",
+    metaDescription: "Meet Our Team | HIP - HAITI IMMIGRATION PROJECT",
+};
 ---
 
-<BaseLayout {current_page} {metaTitle} {metaDescription}>
+<BaseLayout {...pageInfo}>
     <main>
         <section>
             <div class='container'>
