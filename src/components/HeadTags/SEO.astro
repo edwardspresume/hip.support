@@ -1,0 +1,74 @@
+---
+export type Props = {
+    indexPage?: boolean;
+    metaTitle: string;
+    metaDescription: string;
+    metaImage?: {
+        src: string;
+        alt: string;
+    };
+};
+
+const { indexPage = true, metaTitle, metaDescription, metaImage } = Astro.props;
+
+const metaImageData = metaImage || {
+    src: 'haiti.png',
+    alt: 'Haiti',
+};
+
+const metaImageUrl = new URL(metaImageData.src, Astro.url);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+{
+    indexPage ? (
+        <meta name='robots' content='index, follow' />
+    ) : (
+        <meta name='robots' content='noindex, nofollow' />
+    )
+}
+
+<link rel='canonical' href={canonicalURL} />
+
+<title>{metaTitle}</title>
+<meta name='title' content={metaTitle} />
+<meta name='description' content={metaDescription} />
+<meta
+    name='keywords'
+    content='HIP, HAITI IMMIGRATION PROJECT, non-profit, Free, USCIS, application, assistance'
+/>
+
+<!-- Open Graph / Facebook -->
+<meta property='og:locale' content='en' />
+<meta property='og:type' content='website' />
+<meta property='og:site_name' content='Name' />
+<meta property='og:url' content={canonicalURL} />
+<meta property='og:title' content={metaTitle} />
+<meta property='og:description' content={metaDescription} />
+<meta property='og:image' content={metaImageUrl} />
+<meta property='og:image:url' content={metaImageUrl} />
+<meta property='og:image:secure_url' content={metaImageUrl} />
+<meta property='og:image:type' content='image/jpeg' />
+<meta property='og:image:width' content='1200' />
+<meta property='og:image:height' content='600' />
+<meta property='og:image:alt' content={metaImageData.alt} />
+
+<!-- Twitter -->
+<meta property='twitter:title' content={metaTitle} />
+<meta property='twitter:url' content={canonicalURL} />
+<meta property='twitter:card' content='summary_large_image' />
+<meta property='twitter:description' content={metaDescription} />
+<meta property='twitter:image' content={metaImageUrl} />
+<meta name='twitter:image:alt' content={metaImageUrl} />
+
+<!-- JSON LD -->
+<Fragment
+    set:html={`<script type="application/ld+json">
+    {
+    "@context": "https://schema.org/",
+    "@type": "WebSite",
+    "name": "${metaTitle}",
+    "url": "${canonicalURL}"
+    }
+  </script>`}
+/>

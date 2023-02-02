@@ -7,15 +7,11 @@ changeLanguage("ht");
 
 setDefaultNamespace("tos");
 const current_page = "tos_page";
-const current_page_meta_title = "Terms Of Use | HIP - HAITI IMMIGRATION PROJECT";
-const current_page_meta_description = "HIP Terms of use";
+const metaTitle = "Terms Of Use | HIP - HAITI IMMIGRATION PROJECT";
+const metaDescription = "HIP Terms of use";
 ---
 
-<BaseLayout
-    current_page={current_page}
-    current_page_meta_title={current_page_meta_title}
-    current_page_meta_description={current_page_meta_description}
->
+<BaseLayout {current_page} {metaTitle} {metaDescription}>
     <main id='main'>
         <section>
             <div class='container'>

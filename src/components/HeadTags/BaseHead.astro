@@ -1,0 +1,35 @@
+---
+// The global.scss file will be included on all pages through the use of the <BaseHead /> component.
+import '../../scss/global.scss';
+
+// Head components
+import FavIcon from './FavIcon.astro';
+import SEO from './SEO.astro';
+
+export type Props = {
+    indexPage?: boolean;
+    metaTitle: string;
+    metaDescription: string;
+    metaImage?: {
+        src: string;
+        alt: string;
+    };
+};
+
+const { indexPage, metaTitle, metaDescription, metaImage } = Astro.props;
+---
+
+<head>
+    <!-- Global Metadata -->
+    <meta charset='utf-8' />
+    <meta name='theme-color' content='#fff' />
+    <meta name='generator' content={Astro.generator} />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel='sitemap' href='/sitemap-index.xml' />
+
+    <!-- SEO Metadata -->
+    <SEO {indexPage} {metaTitle} {metaDescription} {metaImage} />
+
+    <!-- FavIcon -->
+    <FavIcon />
+</head>

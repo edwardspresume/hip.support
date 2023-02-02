@@ -6,15 +6,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 changeLanguage("en");
 
 const current_page = "request_page";
-const current_page_meta_title = "Request Assistance | HIP - HAITI IMMIGRATION PROJECT";
-const current_page_meta_description = "Request assistance for your USCIS applications from HAITI IMMIGRATION PROJECT";
+const metaTitle = "Request Assistance | HIP - HAITI IMMIGRATION PROJECT";
+const metaDescription = "Request assistance for your USCIS applications from HAITI IMMIGRATION PROJECT";
 ---
 
-<BaseLayout
-    current_page={current_page}
-    current_page_meta_title={current_page_meta_title}
-    current_page_meta_description={current_page_meta_description}
->
+<BaseLayout {current_page} {metaTitle} {metaDescription}>
     <main>
         <section>
             <div class='container'>

@@ -10,15 +10,11 @@ changeLanguage("ht");
 
 setDefaultNamespace("home");
 const current_page = "homepage";
-const current_page_meta_title = "Empowering Haitian Immigrants: The Haiti Immigration Project";
-const current_page_meta_description = "Support the Haiti Immigration Project and make a positive impact on immigrant families in your community. Our non-profit organization is dedicated to serving and empowering immigrant families through networking opportunities and supportive services.";
+const metaTitle = "Empowering Haitian Immigrants: The Haiti Immigration Project";
+const metaDescription = "Support the Haiti Immigration Project and make a positive impact on immigrant families in your community. Our non-profit organization is dedicated to serving and empowering immigrant families through networking opportunities and supportive services.";
 ---
 
-<BaseLayout
-    current_page={current_page}
-    current_page_meta_title={current_page_meta_title}
-    current_page_meta_description={current_page_meta_description}
->
+<BaseLayout {current_page} {metaTitle} {metaDescription}>
     <header
         id='homepage_header'
         class='homepage_header'
@@ -174,8 +170,8 @@ const current_page_meta_description = "Support the Haiti Immigration Project and
         text-align: center;
         place-items: center;
         margin-top: $margin;
-        height: calc(100vh - $margin);
         height: calc(100dvh - $margin);
+        height: calc(100vh - $margin);
         background-image: url('/src/assets/images/header.webp');
         background-size: cover;
         background-position: center;
@@ -198,12 +194,6 @@ const current_page_meta_description = "Support the Haiti Immigration Project and
 
         h2 {
             margin-bottom: 4rem;
-        }
-    }
-
-    @media (max-width: $mb) {
-        .homepage_header {
-            background-attachment: scroll;
         }
     }
 

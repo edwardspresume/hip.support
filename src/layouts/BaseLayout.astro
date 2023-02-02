@@ -2,31 +2,31 @@
 import i18next from 'i18next';
 
 // Site components
-import BaseHead from '../components/BaseHead.astro';
+import BaseHead from '../components/HeadTags/BaseHead.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteMainNav from '../components/SiteMainNav/SiteMainNav.astro';
 
-export interface Props {
+export type Props = {
+    indexPage?: boolean;
     current_page: string;
-    current_page_meta_title: string;
-    current_page_meta_description: string;
-}
+    metaTitle: string;
+    metaDescription: string;
+    metaImage?: {
+        src: string;
+        alt: string;
+    };
+};
 
-const { current_page, current_page_meta_title, current_page_meta_description } =
+const { indexPage, current_page, metaTitle, metaDescription, metaImage } =
     Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang={i18next.language} class='html_tag'>
-    <head>
-        <BaseHead
-            current_page_meta_title={current_page_meta_title}
-            current_page_meta_description={current_page_meta_description}
-        />
-    </head>
+    <BaseHead {indexPage} {metaTitle} {metaDescription} {metaImage} />
 
     <body class={current_page}>
-        <SiteMainNav current_page={current_page} />
+        <SiteMainNav {current_page} />
 
         <slot />
 

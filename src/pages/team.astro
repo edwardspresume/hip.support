@@ -7,15 +7,11 @@ changeLanguage("en");
 
 setDefaultNamespace("team");
 const current_page = "team_page";
-const current_page_meta_title = "Meet Our Team | HIP - HAITI IMMIGRATION PROJECT";
-const current_page_meta_description = "Meet Our Team | HIP - HAITI IMMIGRATION PROJECT";
+const metaTitle = "Meet Our Team | HIP - HAITI IMMIGRATION PROJECT";
+const metaDescription = "Meet Our Team | HIP - HAITI IMMIGRATION PROJECT";
 ---
 
-<BaseLayout
-    current_page={current_page}
-    current_page_meta_title={current_page_meta_title}
-    current_page_meta_description={current_page_meta_description}
->
+<BaseLayout {current_page} {metaTitle} {metaDescription}>
     <main>
         <section>
             <div class='container'>

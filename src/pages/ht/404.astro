@@ -8,15 +8,11 @@ changeLanguage("ht");
 
 setDefaultNamespace("404");
 const current_page = "four_0_four";
-const current_page_meta_title = "Page Not Found | HIP - HAITI IMMIGRATION PROJECT";
-const current_page_meta_description = "404 error, page not found";
+const metaTitle = "Page Not Found | HIP - HAITI IMMIGRATION PROJECT";
+const metaDescription = "404 error, page not found";
 ---
 
-<BaseLayout
-    {current_page}
-    {current_page_meta_title}
-    {current_page_meta_description}
->
+<BaseLayout indexPage={false} {current_page} {metaTitle} {metaDescription}>
     <main>
         <section>
             <div class='container'>
