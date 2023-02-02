@@ -25,13 +25,10 @@ const metaImageType = metaImage.src.substring(
 );
 ---
 
-{
-    indexPage ? (
-        <meta name='robots' content='index, follow' />
-    ) : (
-        <meta name='robots' content='noindex, nofollow' />
-    )
-}
+<meta
+    name='robots'
+    content={indexPage ? 'index, follow' : 'noindex, nofollow'}
+/>
 
 <link rel='canonical' href={canonicalURL} />
 
