@@ -56,12 +56,12 @@ const pageInfo: PageInfo = {
     const form = document.querySelector('form') as HTMLFormElement;
     const htmlTag = document.querySelector('html') as HTMLHtmlElement;
     const currentLanguage = htmlTag.getAttribute('lang');
-    const MAX_SIZE = 6 * 1000 * 1000; // 6MB limit
+    const MAX_SIZE = 2 * 1000 * 1000; // 2MB limit
 
     const alertMessage =
         currentLanguage === 'en'
-            ? 'File size is too big! It needs to be 6MB or less, try reducing the file and resubmit.'
-            : 'Gwosè dosye a twò gwo! Li bezwen 6MB oswa mwens, eseye diminye fichye a epi soumèt ankò';
+            ? 'File size is too big! It needs to be 2MB or less, try reducing the file and resubmit.'
+            : 'Gwosè dosye a twò gwo! Li bezwen 2MB oswa mwens, eseye diminye fichye a epi soumèt ankò';
 
     form.addEventListener('submit', (event: SubmitEvent) => {
         const formData = new FormData(form);
