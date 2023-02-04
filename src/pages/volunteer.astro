@@ -1,14 +1,15 @@
 ---
-import { changeLanguage, t } from "i18next";
-import Form from "../components/Form.astro";
-import BaseLayout, { Props as PageInfo } from "../layouts/BaseLayout.astro";
+import { changeLanguage, t } from 'i18next';
+import Form from '../components/Form.astro';
+import BaseLayout, { Props as PageInfo } from '../layouts/BaseLayout.astro';
 
-changeLanguage("en");
+changeLanguage('en');
 
 const pageInfo: PageInfo = {
-    current_page: "volunteer_page",
-    metaTitle: "Volunteer | HIP - HAITI IMMIGRATION PROJECT",
-    metaDescription: "Volunteer with the haiti immigration project to help the cause",
+    current_page: 'volunteer_page',
+    metaTitle: 'Volunteer | HIP - HAITI IMMIGRATION PROJECT',
+    metaDescription:
+        'Volunteer with the haiti immigration project to help the cause',
 };
 ---
 
@@ -53,6 +54,9 @@ const pageInfo: PageInfo = {
 </BaseLayout>
 
 <script>
+    // Event listener for form submission that checks the file size of the uploaded file.
+    // If the file size is greater than 2MB, alert the user and prevent the form from submitting.
+
     const form = document.querySelector('form') as HTMLFormElement;
     const htmlTag = document.querySelector('html') as HTMLHtmlElement;
     const currentLanguage = htmlTag.getAttribute('lang');
