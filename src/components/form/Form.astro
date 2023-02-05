@@ -1,6 +1,7 @@
 ---
 import { t } from 'i18next';
 import InputField from './InputField.astro';
+import TextAreaField from './TextAreaField.astro';
 
 export interface Props {
     form_name: string;
@@ -47,12 +48,7 @@ const { form_name, page } = Astro.props;
 
     <slot />
 
-    <label>
-        <span class='label_text'>
-            {t('form:labels.message')}
-        </span>
-        <textarea rows='10' name='message'></textarea>
-    </label>
+    <TextAreaField name='message' label={t('form:labels.message')} />
 
     <button type='submit'>
         {t('form:labels.submit')}
