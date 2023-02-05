@@ -1,6 +1,7 @@
 ---
 import { changeLanguage, t } from "i18next";
-import Form from "../../components/Form.astro";
+import Form from "../../components/form/Form.astro";
+import InputField from "../../components/form/InputField.astro";
 import BaseLayout, { Props as PageInfo } from "../../layouts/BaseLayout.astro";
 
 changeLanguage("ht");
@@ -21,31 +22,21 @@ const pageInfo: PageInfo = {
                 </h1>
 
                 <Form page={pageInfo.current_page} form_name='Volunteer'>
-                    <label>
-                        <span class='label_text'>
-                            {t('form:labels.skills')} *</span
-                        >
-                        <input
-                            class='form_input'
-                            type='text'
-                            name='skills'
-                            minlength='3'
-                            required
-                        />
-                    </label>
+                    <InputField
+                        required
+                        name='skills'
+                        type='text'
+                        label={t('form:labels.skills')}
+                        minlength='3'
+                    />
 
-                    <label>
-                        <span class='label_text'>
-                            {t('form:labels.resume')} *</span
-                        >
-                        <input
-                            class='file-input form_input'
-                            type='file'
-                            name='resume'
-                            accept='.pdf, .doc, .docx, .txt'
-                            required
-                        />
-                    </label>
+                    <InputField
+                        required
+                        name='resume'
+                        type='file'
+                        label={t('form:labels.resume')}
+                        accept='.pdf, .doc, .docx, .txt'
+                    />
                 </Form>
             </div>
         </section>
@@ -53,6 +44,9 @@ const pageInfo: PageInfo = {
 </BaseLayout>
 
 <script>
+    // Event listener for form submission that checks the file size of the uploaded file.
+    // If the file size is greater than 2MB, alert the user and prevent the form from submitting.
+
     const form = document.querySelector('form') as HTMLFormElement;
     const htmlTag = document.querySelector('html') as HTMLHtmlElement;
     const currentLanguage = htmlTag.getAttribute('lang');

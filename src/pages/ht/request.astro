@@ -1,6 +1,6 @@
 ---
 import { changeLanguage, t } from "i18next";
-import Form from "../../components/Form.astro";
+import Form from "../../components/form/Form.astro";
 import BaseLayout, { Props as PageInfo } from "../../layouts/BaseLayout.astro";
 
 changeLanguage("ht");
@@ -25,11 +25,9 @@ const pageInfo: PageInfo = {
                     form_name='Assistance request'
                 >
                     <label>
-                        <span class='label_text'>
+                        <span class='label_text required_field'>
                             {t('form:labels.application')}
-
-                            *</span
-                        >
+                        </span>
 
                         <select name='application' required>
                             <option value='' selected disabled>

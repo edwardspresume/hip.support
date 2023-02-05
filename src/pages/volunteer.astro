@@ -1,16 +1,15 @@
 ---
-import { changeLanguage, t } from 'i18next';
-import Form from '../components/form/Form.astro';
-import InputField from '../components/form/InputField.astro';
-import BaseLayout, { Props as PageInfo } from '../layouts/BaseLayout.astro';
+import { changeLanguage, t } from "i18next";
+import Form from "../components/form/Form.astro";
+import InputField from "../components/form/InputField.astro";
+import BaseLayout, { Props as PageInfo } from "../layouts/BaseLayout.astro";
 
-changeLanguage('en');
+changeLanguage("en");
 
 const pageInfo: PageInfo = {
-    current_page: 'volunteer_page',
-    metaTitle: 'Volunteer | HIP - HAITI IMMIGRATION PROJECT',
-    metaDescription:
-        'Volunteer with the haiti immigration project to help the cause',
+    current_page: "volunteer_page",
+    metaTitle: "Volunteer | HIP - HAITI IMMIGRATION PROJECT",
+    metaDescription: "Volunteer with the haiti immigration project to help the cause",
 };
 ---
 
