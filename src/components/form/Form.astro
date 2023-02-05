@@ -1,5 +1,6 @@
 ---
 import { t } from 'i18next';
+import InputField from './InputField.astro';
 
 export interface Props {
     form_name: string;
@@ -21,42 +22,28 @@ const { form_name, page } = Astro.props;
 
     {page === 'request_page' && <p>{t('form:application_paragraph')}</p>}
 
-    <label>
-        <span class='label_text'>
-            {t('form:labels.name')}
-            *</span
-        >
+    <InputField
+        required
+        name='name'
+        type='text'
+        label={t('form:labels.name')}
+    />
 
-        <input class='form_input' type='text' name='name' required />
-    </label>
+    <InputField
+        required
+        name='email'
+        type='email'
+        label={t('form:labels.email')}
+        pattern='^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'
+    />
 
-    <label>
-        <span class='label_text'>
-            {t('form:labels.email')}
-            *</span
-        >
-        <input
-            class='form_input'
-            type='email'
-            name='email'
-            required
-            pattern='^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'
-        />
-    </label>
-
-    <label>
-        <span class='label_text'>
-            {t('form:labels.phone')}
-            *</span
-        >
-        <input
-            class='form_input'
-            type='tel'
-            name='phone'
-            required
-            pattern='^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$'
-        />
-    </label>
+    <InputField
+        required
+        name='phone'
+        type='tel'
+        label={t('form:labels.phone')}
+        pattern='^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'
+    />
 
     <slot />
 
@@ -67,11 +54,9 @@ const { form_name, page } = Astro.props;
         <textarea rows='10' name='message'></textarea>
     </label>
 
-    <input
-        type='submit'
-        value={t('form:labels.submit')}
-        class='submit-btn form_input'
-    />
+    <button type='submit'>
+        {t('form:labels.submit')}
+    </button>
 </form>
 
 <style is:global lang='scss'>
@@ -98,14 +83,14 @@ const { form_name, page } = Astro.props;
             border: 1px solid #c8c8c8;
         }
 
-        .file-input::file-selector-button {
+        [type='file']::file-selector-button {
             border: 0;
             color: #fff;
             border-radius: 7px;
             background: $dark_blue;
         }
 
-        .submit-btn {
+        [type='submit'] {
             border: none;
             color: #fff;
             font-size: 1.9rem;
@@ -115,6 +100,11 @@ const { form_name, page } = Astro.props;
             background: $dark_blue;
 
             @include filter_brightness(0.2s, 85%);
+        }
+
+        .required_field::after {
+            content: ' *';
+            color: red;
         }
     }
 

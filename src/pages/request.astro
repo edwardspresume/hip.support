@@ -1,14 +1,15 @@
 ---
-import { changeLanguage, t } from "i18next";
-import Form from "../components/Form.astro";
-import BaseLayout, { Props as PageInfo } from "../layouts/BaseLayout.astro";
+import { changeLanguage, t } from 'i18next';
+import Form from '../components/form/Form.astro';
+import BaseLayout, { Props as PageInfo } from '../layouts/BaseLayout.astro';
 
-changeLanguage("en");
+changeLanguage('en');
 
 const pageInfo: PageInfo = {
-    current_page: "request_page",
-    metaTitle: "Request Assistance | HIP - HAITI IMMIGRATION PROJECT",
-    metaDescription: "Request assistance for your USCIS applications from HAITI IMMIGRATION PROJECT",
+    current_page: 'request_page',
+    metaTitle: 'Request Assistance | HIP - HAITI IMMIGRATION PROJECT',
+    metaDescription:
+        'Request assistance for your USCIS applications from HAITI IMMIGRATION PROJECT',
 };
 ---
 
@@ -25,11 +26,9 @@ const pageInfo: PageInfo = {
                     form_name='Assistance request'
                 >
                     <label>
-                        <span class='label_text'>
+                        <span class='label_text required_field'>
                             {t('form:labels.application')}
-
-                            *</span
-                        >
+                        </span>
 
                         <select name='application' required>
                             <option value='' selected disabled>

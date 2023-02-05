@@ -1,0 +1,28 @@
+---
+export type Props = {
+    label: string;
+    name: string;
+    type: astroHTML.JSX.HTMLInputTypeAttribute;
+    required?: boolean;
+    placeholder?: string;
+    [otherInputAttributes: string]: any;
+};
+
+const { label, name, type, required, placeholder, ...otherInputAttributes } =
+    Astro.props;
+---
+
+<label>
+    <span class:list={['label_text', { required_field: required }]}
+        >{label}</span
+    >
+
+    <input
+        class='form_input'
+        name={name}
+        type={type}
+        {required}
+        {placeholder}
+        {...otherInputAttributes}
+    />
+</label>
