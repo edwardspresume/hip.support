@@ -1,0 +1,7 @@
+# Netlify Redirects
+
+/index.html https://hip.support/
+/ht/index.html https://hip.support/ht/
+
+/terms-of-use https://hip.support/tos/ 301
+/ht/terms-of-use https://hip.support/ht/tos/ 301
