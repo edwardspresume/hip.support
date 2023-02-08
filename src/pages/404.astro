@@ -1,24 +1,24 @@
 ---
-import { localizePath } from "astro-i18next";
-import { changeLanguage, setDefaultNamespace, t } from "i18next";
-import ButtonStyleLink from "../components/ButtonStyleLink.astro";
-import BaseLayout, { Props as PageInfo } from "../layouts/BaseLayout.astro";
+import { localizePath } from 'astro-i18next';
+import { changeLanguage, setDefaultNamespace, t } from 'i18next';
+import ButtonStyleLink from '../components/ButtonStyleLink.astro';
+import BaseLayout, { Props as PageInfo } from '../layouts/BaseLayout.astro';
 
-changeLanguage("en");
+changeLanguage('en');
 
-setDefaultNamespace("404");
+setDefaultNamespace('404');
 const pageInfo: PageInfo = {
     indexPage: false,
-    current_page: "four_0_four",
-    metaTitle: "Page Not Found | HIP - HAITI IMMIGRATION PROJECT",
-    metaDescription: "404 error, page not found",
+    current_page: 'four_0_four',
+    metaTitle: 'Page Not Found | HIP - HAITI IMMIGRATION PROJECT',
+    metaDescription: '404 error, page not found',
 };
 ---
 
 <BaseLayout {...pageInfo}>
     <main>
         <section>
-            <div class='container'>
+            <div class='container small_wrapper'>
                 <h1>{t('h1')}</h1>
 
                 <p>
@@ -45,5 +45,9 @@ const pageInfo: PageInfo = {
         display: grid;
         text-align: center;
         place-items: center;
+    }
+
+    .small_wrapper {
+        width: min(647px, 100% - 2rem);
     }
 </style>
