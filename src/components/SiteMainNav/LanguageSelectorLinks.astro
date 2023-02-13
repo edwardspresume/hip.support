@@ -1,5 +1,7 @@
 ---
 import { localizePath } from 'astro-i18next';
+import { ensureTrailingSlash } from '../../util';
+
 import { Icon } from 'astro-icon';
 
 // URL Path
@@ -7,7 +9,10 @@ const { pathname } = Astro.url;
 const english_path = pathname.replace(/\/ht\//, '/');
 ---
 
-<a href={localizePath(pathname, 'ht')} class='language_selector_link creole'>
+<a
+    href={ensureTrailingSlash(localizePath(pathname, 'ht'))}
+    class='language_selector_link creole'
+>
     <Icon
         name='twemoji:flag-for-flag-haiti'
         width='15'
