@@ -25,6 +25,19 @@ const { indexPage, current_page, metaTitle, metaDescription, metaImage } =
 <html lang={i18next.language} class='html_tag'>
     <BaseHead {indexPage} {metaTitle} {metaDescription} {metaImage} />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src='https://www.googletagmanager.com/gtag/js?id=G-HG8691T89E'
+    ></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-HG8691T89E');
+    </script>
+
     <body class={current_page}>
         <SiteMainNav {current_page} />
 
