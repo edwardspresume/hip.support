@@ -2,6 +2,7 @@
 // I18next
 import { localizePath } from 'astro-i18next';
 import { t } from 'i18next';
+import { ensureTrailingSlash } from '../../util';
 
 // Nav components
 import LanguageSelectorLinks from './LanguageSelectorLinks.astro';
@@ -30,7 +31,10 @@ const { current_page } = Astro.props;
             icon_size='25'
         />
 
-        <a class='i_134a_link' href={localizePath('/i-134a-sponsorship')}>
+        <a
+            class='i_134a_link'
+            href={ensureTrailingSlash(localizePath('/i-134a-sponsorship'))}
+        >
             {t('navigation:134a')}
         </a>
 
