@@ -18,7 +18,7 @@ const pageInfo: PageInfo = {
 <BaseLayout {...pageInfo}>
     <main>
         <section>
-            <div class='container'>
+            <div class='container small_wrapper'>
                 <h1>{t('h1')}</h1>
 
                 <p>
@@ -45,5 +45,9 @@ const pageInfo: PageInfo = {
         display: grid;
         text-align: center;
         place-items: center;
+
+        .small_wrapper {
+            width: min(647px, 100% - 2rem);
+        }
     }
 </style>
