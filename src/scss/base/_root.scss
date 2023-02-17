@@ -8,8 +8,8 @@ $text_top_margin: 1.7rem;
 
 body {
     display: flex;
-    min-height: 100dvh;
     min-height: 100vh;
+    min-height: 100svh;
     flex-direction: column;
     background: rgb(243, 245, 247);
 }
