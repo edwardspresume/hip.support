@@ -1,19 +1,18 @@
 ---
-import { changeLanguage, setDefaultNamespace, t } from 'i18next';
+import { changeLanguage, setDefaultNamespace, t } from "i18next";
 // site components
-import DonateLink from '../components/DonateLink.astro';
-import HomePageArticles from '../components/HomePageArticles.astro';
-import ScrollTopBtn from '../components/ScrollTopBtn.astro';
-import BaseLayout, { Props as PageInfo } from '../layouts/BaseLayout.astro';
+import DonateLink from "../components/DonateLink.astro";
+import HomePageArticles from "../components/HomePageArticles.astro";
+import ScrollTopBtn from "../components/ScrollTopBtn.astro";
+import BaseLayout, { Props as PageInfo } from "../layouts/BaseLayout.astro";
 
-changeLanguage('en');
+changeLanguage("en");
 
-setDefaultNamespace('home');
+setDefaultNamespace("home");
 const pageInfo: PageInfo = {
-    current_page: 'homepage',
-    metaTitle: 'Empowering Haitian Immigrants: The Haiti Immigration Project',
-    metaDescription:
-        'Empower Haitian immigrant families with the Haiti Immigration Project. Our dedicated non-profit offers networking & support services.',
+    current_page: "homepage",
+    metaTitle: "Empowering Haitian Immigrants: The Haiti Immigration Project",
+    metaDescription: "Empower Haitian immigrant families with the Haiti Immigration Project. Our dedicated non-profit offers networking & support services.",
 };
 ---
 

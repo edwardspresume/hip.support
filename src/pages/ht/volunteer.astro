@@ -23,7 +23,6 @@ const pageInfo: PageInfo = {
 
                 <Form page={pageInfo.current_page} form_name='Volunteer'>
                     <InputField
-                        required
                         name='skills'
                         type='text'
                         label={t('form:labels.skills')}
@@ -50,20 +49,65 @@ const pageInfo: PageInfo = {
     const form = document.querySelector('form') as HTMLFormElement;
     const htmlTag = document.querySelector('html') as HTMLHtmlElement;
     const currentLanguage = htmlTag.getAttribute('lang');
-    const MAX_SIZE = 2 * 1000 * 1000; // 2MB limit
-
-    const alertMessage =
-        currentLanguage === 'en'
-            ? 'File size is too big! It needs to be 2MB or less, try reducing the file and resubmit.'
-            : 'Gwosè dosye a twò gwo! Li bezwen 2MB oswa mwens, eseye diminye fichye a epi soumèt ankò';
 
     form.addEventListener('submit', (event: SubmitEvent) => {
-        const formData = new FormData(form);
-        const file = formData.get('resume');
+        // prevent the form from submitting
+        event.preventDefault();
 
-        if (file instanceof File && file.size > MAX_SIZE) {
-            event.preventDefault();
-            alert(alertMessage);
+        // create a FormData instance from the form
+        const formData = new FormData(form);
+
+        // get the file from the form data
+        const file = formData.get('resume') as File;
+
+        // set the maximum file size in bytes
+        const MAX_SIZE = 2 * 1000 * 1000; // 2MB limit
+
+        // get the resume input element
+        const resumeInput = document.querySelector(
+            'input[name="resume"]'
+        ) as HTMLInputElement;
+
+        // get the allowed file extensions from the resume input element's accept attribute
+        const allowedFileExtensions = resumeInput?.getAttribute('accept');
+
+        // get the file extension
+        const fileExtension = file.name.split('.').pop() as string;
+
+        // check if the file extension is allowed
+        if (
+            allowedFileExtensions &&
+            !allowedFileExtensions.includes(fileExtension.toLocaleLowerCase())
+        ) {
+            alert(
+                currentLanguage === 'en'
+                    ? `Invalid file extension. Only files with the following extensions are allowed: ${allowedFileExtensions}. Please select a file with a valid extension and try again`
+                    : `Ekstansyon dosye ki pa valab. Sèlman fichye ki gen ekstansyon sa yo gen dwa: ${allowedFileExtensions}. Tanpri chwazi yon fichye ki gen yon ekstansyon valab epi eseye ankò`
+            );
+            return;
         }
+
+        // check if the file size is too big
+        if (file.size > MAX_SIZE) {
+            alert(
+                currentLanguage === 'en'
+                    ? 'File size is too big! It needs to be 2MB or less, try reducing the file and resubmit.'
+                    : 'Gwosè dosye a twò gwo! Li bezwen 2MB oswa mwens, eseye diminye fichye a epi soumèt ankò'
+            );
+            return;
+        }
+
+        // check if the file is empty
+        if (file.size === 0) {
+            alert(
+                currentLanguage === 'en'
+                    ? 'File is empty. Please select a file and try again'
+                    : 'Fichye a vid. Tanpri chwazi yon fichye epi eseye ankò'
+            );
+            return;
+        }
+
+        // if all the checks pass, submit the form
+        form.submit();
     });
 </script>
