@@ -51,17 +51,31 @@ const pageInfo: PageInfo = {
     const htmlTag = document.querySelector('html') as HTMLHtmlElement;
     const currentLanguage = htmlTag.getAttribute('lang');
 
-    function validateFile(file: File, event: SubmitEvent) {
+    form.addEventListener('submit', (event: SubmitEvent) => {
+        // prevent the form from submitting
+        event.preventDefault();
+
+        // create a FormData instance from the form
+        const formData = new FormData(form);
+
+        // get the file from the form data
+        const file = formData.get('resume') as File;
+
+        // set the maximum file size in bytes
         const MAX_SIZE = 2 * 1000 * 1000; // 2MB limit
 
+        // get the resume input element
         const resumeInput = document.querySelector(
             'input[name="resume"]'
         ) as HTMLInputElement;
 
+        // get the allowed file extensions from the resume input element's accept attribute
         const allowedFileExtensions = resumeInput?.getAttribute('accept');
 
+        // get the file extension
         const fileExtension = file.name.split('.').pop() as string;
 
+        // check if the file extension is allowed
         if (
             allowedFileExtensions &&
             !allowedFileExtensions.includes(fileExtension.toLocaleLowerCase())
@@ -71,22 +85,30 @@ const pageInfo: PageInfo = {
                     ? `Invalid file extension. Only files with the following extensions are allowed: ${allowedFileExtensions}. Please select a file with a valid extension and try again`
                     : `Ekstansyon dosye ki pa valab. Sèlman fichye ki gen ekstansyon sa yo gen dwa: ${allowedFileExtensions}. Tanpri chwazi yon fichye ki gen yon ekstansyon valab epi eseye ankò`
             );
+            return;
         }
 
+        // check if the file size is too big
         if (file.size > MAX_SIZE) {
-            event.preventDefault();
             alert(
                 currentLanguage === 'en'
                     ? 'File size is too big! It needs to be 2MB or less, try reducing the file and resubmit.'
                     : 'Gwosè dosye a twò gwo! Li bezwen 2MB oswa mwens, eseye diminye fichye a epi soumèt ankò'
             );
+            return;
         }
-    }
 
-    form.addEventListener('submit', (event: SubmitEvent) => {
-        const formData = new FormData(form);
-        const file = formData.get('resume') as File;
+        // check if the file is empty
+        if (file.size === 0) {
+            alert(
+                currentLanguage === 'en'
+                    ? 'File is empty. Please select a file and try again'
+                    : 'Fichye a vid. Tanpri chwazi yon fichye epi eseye ankò'
+            );
+            return;
+        }
 
-        validateFile(file, event);
+        // if all the checks pass, submit the form
+        form.submit();
     });
 </script>
