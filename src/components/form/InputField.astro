@@ -15,5 +15,12 @@ const { label, name, type, required, ...otherAttrs } = Astro.props;
         >{label}</span
     >
 
-    <input class='form_input' {name} {type} {required} {...otherAttrs} />
+    <input
+        class='form_input'
+        enterkeyhint='next'
+        {name}
+        {type}
+        {required}
+        {...otherAttrs}
+    />
 </label>

@@ -14,5 +14,6 @@ const { label, name, required, ...otherAttrs } = Astro.props;
         {label}
     </span>
 
-    <textarea rows='10' {name} {required} {...otherAttrs}></textarea>
+    <textarea rows='10' enterkeyhint='enter' {name} {required} {...otherAttrs}
+    ></textarea>
 </label>
