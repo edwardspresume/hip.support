@@ -14,7 +14,7 @@ export type Props = {
         src: string;
         alt: string;
     };
-    pageSchema?: string;
+    pageSchema?: object[];
 };
 
 const { indexPage, metaTitle, metaDescription, metaImage, pageSchema } =
@@ -35,6 +35,15 @@ const { indexPage, metaTitle, metaDescription, metaImage, pageSchema } =
     <!-- FavIcon -->
     <FavIcon />
 
-    <!-- Page Schema -->
-    {pageSchema && <script type='application/ld+json'>{pageSchema}</script>}
+    {
+        pageSchema &&
+            pageSchema.map((schema: object) => {
+                return (
+                    <script
+                        type='application/ld+json'
+                        set:html={JSON.stringify(schema)}
+                    />
+                );
+            })
+    }
 </head>

@@ -15,15 +15,28 @@ export type Props = {
         src: string;
         alt: string;
     };
+    pageSchema?: object[];
 };
 
-const { indexPage, current_page, metaTitle, metaDescription, metaImage } =
-    Astro.props;
+const {
+    indexPage,
+    current_page,
+    metaTitle,
+    metaDescription,
+    metaImage,
+    pageSchema,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang={i18next.language} class='html_tag'>
-    <BaseHead {indexPage} {metaTitle} {metaDescription} {metaImage} />
+    <BaseHead
+        {indexPage}
+        {metaTitle}
+        {metaDescription}
+        {metaImage}
+        {pageSchema}
+    />
 
     <!-- Google tag (gtag.js) -->
     <script async src='https://www.googletagmanager.com/gtag/js?id=G-HG8691T89E'
