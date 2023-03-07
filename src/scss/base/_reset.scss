@@ -24,6 +24,10 @@
 6. dark mode user-agent-styles
 */
 
+*:focus-visible {
+    outline: hsl(77, 98%, 36%) solid 3px;
+}
+
 html {
     line-height: 1.3;
     /* 1 */
