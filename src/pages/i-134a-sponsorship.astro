@@ -1,17 +1,46 @@
 ---
-import { Trans } from "astro-i18next/components";
-import { changeLanguage, setDefaultNamespace, t } from "i18next";
-import ScrollTopBtn from "../components/ScrollTopBtn.astro";
-import BaseLayout, { Props as PageInfo } from "../layouts/BaseLayout.astro";
+import { Trans } from 'astro-i18next/components';
+import { changeLanguage, setDefaultNamespace, t } from 'i18next';
+import ScrollTopBtn from '../components/ScrollTopBtn.astro';
+import BaseLayout, { Props as PageInfo } from '../layouts/BaseLayout.astro';
 
-changeLanguage("en");
+changeLanguage('en');
 
-setDefaultNamespace("i-134a-sponsorship");
+setDefaultNamespace('i-134a-sponsorship');
 const pageInfo: PageInfo = {
-    current_page: "i-134A-sponsorship",
-    metaTitle: "I-134A Sponsorship | HIP - HAITI IMMIGRATION PROJECT",
-    metaDescription: "I-134A, Online Request to be a Supporter and Declaration of Financial Support",
+    current_page: 'i-134A-sponsorship',
+    metaTitle: 'I-134A Sponsorship | HIP - HAITI IMMIGRATION PROJECT',
+    metaDescription:
+        'I-134A, Online Request to be a Supporter and Declaration of Financial Support',
 };
+
+const blogPostSchema = `
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://hip.support/i-134a-sponsorship/"
+  },
+  "headline": ${pageInfo.current_page},
+  "description": "PRESIDENT BIDEN'S SPECIAL HUMANITARIAN SPONSORSHIP PROGRAM FOR HAITIANS",
+  "image": "",
+  "author": {
+    "@type": "Person",
+    "name": "Marie Pereira",
+    "url": "https://www.instagram.com/themariepereira/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HAITI IMMIGRATION PROJECT",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://hip.support/haiti.png"
+    }
+  },
+  "datePublished": "2023-01-12",
+  "dateModified": "2023-01-14"
+}`;
 ---
 
 <BaseLayout {...pageInfo}>

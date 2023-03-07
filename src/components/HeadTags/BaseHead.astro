@@ -14,9 +14,11 @@ export type Props = {
         src: string;
         alt: string;
     };
+    pageSchema?: string;
 };
 
-const { indexPage, metaTitle, metaDescription, metaImage } = Astro.props;
+const { indexPage, metaTitle, metaDescription, metaImage, pageSchema } =
+    Astro.props;
 ---
 
 <head>
@@ -32,4 +34,7 @@ const { indexPage, metaTitle, metaDescription, metaImage } = Astro.props;
 
     <!-- FavIcon -->
     <FavIcon />
+
+    <!-- Page Schema -->
+    {pageSchema && <script type='application/ld+json'>{pageSchema}</script>}
 </head>
