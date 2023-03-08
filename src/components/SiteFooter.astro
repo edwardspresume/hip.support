@@ -4,8 +4,6 @@ import { ensureTrailingSlash } from '../util';
 
 import { t } from 'i18next';
 import SocialMediaDiv from './SocialMediaDiv.astro';
-
-const current_year = new Date().getFullYear();
 ---
 
 <footer class='site_footer'>
@@ -18,7 +16,7 @@ const current_year = new Date().getFullYear();
         <SocialMediaDiv />
 
         <p class='copyright_text'>
-            &copy; {current_year}
+            &copy; <var id='year'></var>
 
             {t('footer:copyright_text')}
         </p>
@@ -65,3 +63,9 @@ const current_year = new Date().getFullYear();
         }
     }
 </style>
+
+<script>
+    const current_year = document.getElementById('year') as HTMLElement;
+
+    current_year.textContent = new Date().getFullYear().toString();
+</script>
