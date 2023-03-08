@@ -30,20 +30,8 @@ const { indexPage, metaTitle, metaDescription, metaImage, pageSchema } =
     <link rel='sitemap' href='/sitemap-index.xml' />
 
     <!-- SEO Metadata -->
-    <SEO {indexPage} {metaTitle} {metaDescription} {metaImage} />
+    <SEO {indexPage} {metaTitle} {metaDescription} {metaImage} {pageSchema} />
 
     <!-- FavIcon -->
     <FavIcon />
-
-    {
-        pageSchema &&
-            pageSchema.map((schema: object) => {
-                return (
-                    <script
-                        type='application/ld+json'
-                        set:html={JSON.stringify(schema)}
-                    />
-                );
-            })
-    }
 </head>
