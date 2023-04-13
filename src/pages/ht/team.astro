@@ -1,6 +1,5 @@
 ---
-import { changeLanguage, setDefaultNamespace, t } from "i18next";
-import TeamTable from "../../components/Team/TeamTable.astro";
+import { changeLanguage, setDefaultNamespace } from "i18next";
 import BaseLayout, { Props as PageInfo } from "../../layouts/BaseLayout.astro";
 
 changeLanguage("ht");
@@ -17,11 +16,11 @@ const pageInfo: PageInfo = {
     <main>
         <section>
             <div class='container'>
-                <h1>
+                <!-- <h1>
                     {t('h1')}
-                </h1>
+                </h1> -->
 
-                <TeamTable />
+                <!-- <TeamTable /> -->
             </div>
         </section>
     </main>
