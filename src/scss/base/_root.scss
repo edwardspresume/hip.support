@@ -81,7 +81,7 @@ section {
 
 @media (max-width: $mb) {
     html {
-        scroll-padding-top: 9rem;
+        scroll-padding-top: 7rem;
     }
 
     body:not(.homepage) main {
@@ -99,7 +99,7 @@ section {
 
 @media (min-width: $dt) {
     html {
-        scroll-padding-top: 13rem;
+        scroll-padding-top: 8rem;
     }
 
     body:not(.homepage) main {
